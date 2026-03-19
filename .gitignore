@@ -1,0 +1,12 @@
+/env
+
+/node_modules
+
+node_modules
+.env
+.env.*
+!.env.example
+dist
+
+/src/config/env.ts
+/prisma/migrations

@@ -1,0 +1,13 @@
+model HackathonBookmark {
+    id          String @id @default(cuid())
+    hackathonId String
+    userId      String
+
+    hackathon Hackathon @relation(fields: [hackathonId], references: [id], onDelete: Cascade)
+    user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    createdAt DateTime @default(now())
+
+    @@unique([hackathonId, userId])
+    @@index([userId])
+}

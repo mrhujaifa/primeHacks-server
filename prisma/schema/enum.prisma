@@ -1,0 +1,51 @@
+enum UserRole {
+    ADMIN
+    ORGANIZER
+    USER
+}
+
+enum UserStatus {
+    BLOCK
+    SUSPENDED
+    ACTIVE
+}
+
+enum HackathonStatus {
+    DRAFT
+    UPCOMING
+    ACTIVE
+    CLOSED
+}
+
+enum SubmissionStatus {
+    DRAFT
+    PENDING
+    APPROVED
+    REJECTED
+}
+
+enum RewardType {
+    CASH
+    BADGE
+    CERTIFICATE
+    SWAG
+    OTHER
+}
+
+enum PaymentStatus {
+    PENDING
+    PAID
+    FAILED
+}
+
+enum SubscriptionPlan {
+    FREE
+    PRO_MONTHLY
+    PRO_YEARLY
+}
+
+enum SubscriptionStatus {
+    ACTIVE
+    EXPIRED
+    CANCELLED
+}

@@ -1,0 +1,26 @@
+model Submission {
+    id            String           @id @default(cuid())
+    hackathonId   String
+    userId        String
+    title         String
+    shortSummary  String
+    description   String
+    techStack     String[]
+    repositoryUrl String?
+    demoUrl       String?
+    videoUrl      String?
+    thumbnailUrl  String?
+    status        SubmissionStatus @default(DRAFT)
+    submittedAt   DateTime?
+
+    hackathonWinner HackathonWinner[]
+    hackathon       Hackathon         @relation(fields: [hackathonId], references: [id], onDelete: Cascade)
+    user            User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([hackathonId])
+    @@index([userId])
+    @@index([status])
+}
