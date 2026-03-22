@@ -108,13 +108,22 @@ const loginUser = async (payload: ILoginUser) => {
   } catch (error: any) {
     if (error instanceof AppError) throw error;
 
-    throw new AppError(
-      status.INTERNAL_SERVER_ERROR,
-      error?.message || "User login failed",
-    );
+    if (
+      error?.status === 401 ||
+      error?.statusCode === 401 ||
+      error?.code === "INVALID_EMAIL_OR_PASSWORD" ||
+      error?.code === "INVALID_CREDENTIALS"
+    ) {
+      throw new AppError(status.UNAUTHORIZED, "Invalid email or password    ");
+    }
+
+    if (error?.status === 403 || error?.statusCode === 403) {
+      throw new AppError(status.FORBIDDEN, "Access denied");
+    }
+
+    throw new AppError(status.INTERNAL_SERVER_ERROR, "User login failed");
   }
 };
-
 const getMe = async (user: IRequestUser) => {
   const isUserExists = await prisma.user.findUnique({
     where: {

@@ -16,7 +16,8 @@
     "push": "prisma push",
     "pull": "prisma pull",
     "deploy": "prisma deploy",
-    "format": "prisma format"
+    "format": "prisma format",
+    "seed": "tsx src/scripts/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -34,6 +35,7 @@
     "http-status": "^2.1.0",
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.20.0",
+    "slugify": "^1.6.8",
     "zod": "^4.3.6"
   },
   "devDependencies": {

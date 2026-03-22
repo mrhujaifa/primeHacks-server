@@ -193,13 +193,6 @@ export type DecimalFilter<$PrismaModel = never> = {
   not?: Prisma.NestedDecimalFilter<$PrismaModel> | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type EnumHackathonStatusFilter<$PrismaModel = never> = {
-  equals?: $Enums.HackathonStatus | Prisma.EnumHackathonStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel> | $Enums.HackathonStatus
-}
-
 export type IntNullableFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
@@ -209,6 +202,13 @@ export type IntNullableFilter<$PrismaModel = never> = {
   gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
   gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
   not?: Prisma.NestedIntNullableFilter<$PrismaModel> | number | null
+}
+
+export type EnumHackathonStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.HackathonStatus | Prisma.EnumHackathonStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel> | $Enums.HackathonStatus
 }
 
 export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
@@ -227,16 +227,6 @@ export type DecimalWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDecimalFilter<$PrismaModel>
 }
 
-export type EnumHackathonStatusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.HackathonStatus | Prisma.EnumHackathonStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumHackathonStatusWithAggregatesFilter<$PrismaModel> | $Enums.HackathonStatus
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel>
-}
-
 export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
@@ -251,6 +241,16 @@ export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
+}
+
+export type EnumHackathonStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.HackathonStatus | Prisma.EnumHackathonStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHackathonStatusWithAggregatesFilter<$PrismaModel> | $Enums.HackathonStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel>
 }
 
 export type EnumRewardTypeFilter<$PrismaModel = never> = {
@@ -580,16 +580,6 @@ export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDecimalFilter<$PrismaModel>
 }
 
-export type NestedEnumHackathonStatusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.HackathonStatus | Prisma.EnumHackathonStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumHackathonStatusWithAggregatesFilter<$PrismaModel> | $Enums.HackathonStatus
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel>
-}
-
 export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
@@ -615,6 +605,16 @@ export type NestedFloatNullableFilter<$PrismaModel = never> = {
   gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   not?: Prisma.NestedFloatNullableFilter<$PrismaModel> | number | null
+}
+
+export type NestedEnumHackathonStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.HackathonStatus | Prisma.EnumHackathonStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HackathonStatus[] | Prisma.ListEnumHackathonStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHackathonStatusWithAggregatesFilter<$PrismaModel> | $Enums.HackathonStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumHackathonStatusFilter<$PrismaModel>
 }
 
 export type NestedEnumRewardTypeFilter<$PrismaModel = never> = {
