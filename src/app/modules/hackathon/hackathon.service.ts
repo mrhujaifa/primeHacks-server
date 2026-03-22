@@ -10,7 +10,10 @@ import {
 } from "../../../../prisma/generated/prisma/enums";
 import { SlugUtils } from "../../utils/slugUtils";
 
+<<<<<<< HEAD
 //* create Hackathon
+=======
+>>>>>>> eae79c10a2eee6011026327ba61f96ed3757200e
 const createHackathon = async (
   user: IRequestUser,
   payload: ICreateHackathonPayload,
@@ -144,6 +147,7 @@ const createHackathon = async (
 
   return hackathon;
 };
+<<<<<<< HEAD
 
 //* Get All Hackathons
 const getAllHackathon = async () => {
@@ -159,4 +163,8 @@ const getAllHackathon = async () => {
 export const HackathonServices = {
   createHackathon,
   getAllHackathon,
+=======
+export const HackathonServices = {
+  createHackathon,
+>>>>>>> eae79c10a2eee6011026327ba61f96ed3757200e
 };
