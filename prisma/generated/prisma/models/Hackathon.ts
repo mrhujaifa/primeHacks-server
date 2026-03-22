@@ -42,15 +42,25 @@ export type HackathonMinAggregateOutputType = {
   slug: string | null
   shortDescription: string | null
   fullDescription: string | null
+  logoUrl: string | null
   bannerImageUrl: string | null
+  websiteUrl: string | null
+  discordUrl: string | null
+  contactEmail: string | null
+  rules: string | null
+  eligibility: string | null
   prizePoolText: string | null
   registrationFee: runtime.Decimal | null
   currency: string | null
+  maxTeamSize: number | null
+  registrationStartDate: Date | null
+  registrationEndDate: Date | null
+  startDate: Date | null
+  endDate: Date | null
   submissionDeadline: Date | null
   status: $Enums.HackathonStatus | null
   isFeatured: boolean | null
   isPremiumOnly: boolean | null
-  maxTeamSize: number | null
   categoryId: string | null
   organizerId: string | null
   createdAt: Date | null
@@ -63,15 +73,25 @@ export type HackathonMaxAggregateOutputType = {
   slug: string | null
   shortDescription: string | null
   fullDescription: string | null
+  logoUrl: string | null
   bannerImageUrl: string | null
+  websiteUrl: string | null
+  discordUrl: string | null
+  contactEmail: string | null
+  rules: string | null
+  eligibility: string | null
   prizePoolText: string | null
   registrationFee: runtime.Decimal | null
   currency: string | null
+  maxTeamSize: number | null
+  registrationStartDate: Date | null
+  registrationEndDate: Date | null
+  startDate: Date | null
+  endDate: Date | null
   submissionDeadline: Date | null
   status: $Enums.HackathonStatus | null
   isFeatured: boolean | null
   isPremiumOnly: boolean | null
-  maxTeamSize: number | null
   categoryId: string | null
   organizerId: string | null
   createdAt: Date | null
@@ -84,15 +104,25 @@ export type HackathonCountAggregateOutputType = {
   slug: number
   shortDescription: number
   fullDescription: number
+  logoUrl: number
   bannerImageUrl: number
+  websiteUrl: number
+  discordUrl: number
+  contactEmail: number
+  rules: number
+  eligibility: number
   prizePoolText: number
   registrationFee: number
   currency: number
+  maxTeamSize: number
+  registrationStartDate: number
+  registrationEndDate: number
+  startDate: number
+  endDate: number
   submissionDeadline: number
   status: number
   isFeatured: number
   isPremiumOnly: number
-  maxTeamSize: number
   categoryId: number
   organizerId: number
   createdAt: number
@@ -117,15 +147,25 @@ export type HackathonMinAggregateInputType = {
   slug?: true
   shortDescription?: true
   fullDescription?: true
+  logoUrl?: true
   bannerImageUrl?: true
+  websiteUrl?: true
+  discordUrl?: true
+  contactEmail?: true
+  rules?: true
+  eligibility?: true
   prizePoolText?: true
   registrationFee?: true
   currency?: true
+  maxTeamSize?: true
+  registrationStartDate?: true
+  registrationEndDate?: true
+  startDate?: true
+  endDate?: true
   submissionDeadline?: true
   status?: true
   isFeatured?: true
   isPremiumOnly?: true
-  maxTeamSize?: true
   categoryId?: true
   organizerId?: true
   createdAt?: true
@@ -138,15 +178,25 @@ export type HackathonMaxAggregateInputType = {
   slug?: true
   shortDescription?: true
   fullDescription?: true
+  logoUrl?: true
   bannerImageUrl?: true
+  websiteUrl?: true
+  discordUrl?: true
+  contactEmail?: true
+  rules?: true
+  eligibility?: true
   prizePoolText?: true
   registrationFee?: true
   currency?: true
+  maxTeamSize?: true
+  registrationStartDate?: true
+  registrationEndDate?: true
+  startDate?: true
+  endDate?: true
   submissionDeadline?: true
   status?: true
   isFeatured?: true
   isPremiumOnly?: true
-  maxTeamSize?: true
   categoryId?: true
   organizerId?: true
   createdAt?: true
@@ -159,15 +209,25 @@ export type HackathonCountAggregateInputType = {
   slug?: true
   shortDescription?: true
   fullDescription?: true
+  logoUrl?: true
   bannerImageUrl?: true
+  websiteUrl?: true
+  discordUrl?: true
+  contactEmail?: true
+  rules?: true
+  eligibility?: true
   prizePoolText?: true
   registrationFee?: true
   currency?: true
+  maxTeamSize?: true
+  registrationStartDate?: true
+  registrationEndDate?: true
+  startDate?: true
+  endDate?: true
   submissionDeadline?: true
   status?: true
   isFeatured?: true
   isPremiumOnly?: true
-  maxTeamSize?: true
   categoryId?: true
   organizerId?: true
   createdAt?: true
@@ -267,15 +327,25 @@ export type HackathonGroupByOutputType = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl: string | null
   bannerImageUrl: string | null
+  websiteUrl: string | null
+  discordUrl: string | null
+  contactEmail: string | null
+  rules: string | null
+  eligibility: string | null
   prizePoolText: string | null
   registrationFee: runtime.Decimal
   currency: string
+  maxTeamSize: number | null
+  registrationStartDate: Date | null
+  registrationEndDate: Date | null
+  startDate: Date | null
+  endDate: Date | null
   submissionDeadline: Date
   status: $Enums.HackathonStatus
   isFeatured: boolean
   isPremiumOnly: boolean
-  maxTeamSize: number | null
   categoryId: string
   organizerId: string
   createdAt: Date
@@ -311,15 +381,25 @@ export type HackathonWhereInput = {
   slug?: Prisma.StringFilter<"Hackathon"> | string
   shortDescription?: Prisma.StringFilter<"Hackathon"> | string
   fullDescription?: Prisma.StringFilter<"Hackathon"> | string
+  logoUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   bannerImageUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  websiteUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  discordUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  contactEmail?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  rules?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  eligibility?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   prizePoolText?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   registrationFee?: Prisma.DecimalFilter<"Hackathon"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFilter<"Hackathon"> | string
+  maxTeamSize?: Prisma.IntNullableFilter<"Hackathon"> | number | null
+  registrationStartDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  registrationEndDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  startDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  endDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
   submissionDeadline?: Prisma.DateTimeFilter<"Hackathon"> | Date | string
   status?: Prisma.EnumHackathonStatusFilter<"Hackathon"> | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFilter<"Hackathon"> | boolean
   isPremiumOnly?: Prisma.BoolFilter<"Hackathon"> | boolean
-  maxTeamSize?: Prisma.IntNullableFilter<"Hackathon"> | number | null
   categoryId?: Prisma.StringFilter<"Hackathon"> | string
   organizerId?: Prisma.StringFilter<"Hackathon"> | string
   createdAt?: Prisma.DateTimeFilter<"Hackathon"> | Date | string
@@ -338,15 +418,25 @@ export type HackathonOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   shortDescription?: Prisma.SortOrder
   fullDescription?: Prisma.SortOrder
+  logoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   bannerImageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  websiteUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  discordUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  contactEmail?: Prisma.SortOrderInput | Prisma.SortOrder
+  rules?: Prisma.SortOrderInput | Prisma.SortOrder
+  eligibility?: Prisma.SortOrderInput | Prisma.SortOrder
   prizePoolText?: Prisma.SortOrderInput | Prisma.SortOrder
   registrationFee?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  maxTeamSize?: Prisma.SortOrderInput | Prisma.SortOrder
+  registrationStartDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  registrationEndDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  startDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  endDate?: Prisma.SortOrderInput | Prisma.SortOrder
   submissionDeadline?: Prisma.SortOrder
   status?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPremiumOnly?: Prisma.SortOrder
-  maxTeamSize?: Prisma.SortOrderInput | Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   organizerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -368,15 +458,25 @@ export type HackathonWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"Hackathon"> | string
   shortDescription?: Prisma.StringFilter<"Hackathon"> | string
   fullDescription?: Prisma.StringFilter<"Hackathon"> | string
+  logoUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   bannerImageUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  websiteUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  discordUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  contactEmail?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  rules?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  eligibility?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   prizePoolText?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   registrationFee?: Prisma.DecimalFilter<"Hackathon"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFilter<"Hackathon"> | string
+  maxTeamSize?: Prisma.IntNullableFilter<"Hackathon"> | number | null
+  registrationStartDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  registrationEndDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  startDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  endDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
   submissionDeadline?: Prisma.DateTimeFilter<"Hackathon"> | Date | string
   status?: Prisma.EnumHackathonStatusFilter<"Hackathon"> | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFilter<"Hackathon"> | boolean
   isPremiumOnly?: Prisma.BoolFilter<"Hackathon"> | boolean
-  maxTeamSize?: Prisma.IntNullableFilter<"Hackathon"> | number | null
   categoryId?: Prisma.StringFilter<"Hackathon"> | string
   organizerId?: Prisma.StringFilter<"Hackathon"> | string
   createdAt?: Prisma.DateTimeFilter<"Hackathon"> | Date | string
@@ -395,15 +495,25 @@ export type HackathonOrderByWithAggregationInput = {
   slug?: Prisma.SortOrder
   shortDescription?: Prisma.SortOrder
   fullDescription?: Prisma.SortOrder
+  logoUrl?: Prisma.SortOrderInput | Prisma.SortOrder
   bannerImageUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  websiteUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  discordUrl?: Prisma.SortOrderInput | Prisma.SortOrder
+  contactEmail?: Prisma.SortOrderInput | Prisma.SortOrder
+  rules?: Prisma.SortOrderInput | Prisma.SortOrder
+  eligibility?: Prisma.SortOrderInput | Prisma.SortOrder
   prizePoolText?: Prisma.SortOrderInput | Prisma.SortOrder
   registrationFee?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  maxTeamSize?: Prisma.SortOrderInput | Prisma.SortOrder
+  registrationStartDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  registrationEndDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  startDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  endDate?: Prisma.SortOrderInput | Prisma.SortOrder
   submissionDeadline?: Prisma.SortOrder
   status?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPremiumOnly?: Prisma.SortOrder
-  maxTeamSize?: Prisma.SortOrderInput | Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   organizerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -424,15 +534,25 @@ export type HackathonScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"Hackathon"> | string
   shortDescription?: Prisma.StringWithAggregatesFilter<"Hackathon"> | string
   fullDescription?: Prisma.StringWithAggregatesFilter<"Hackathon"> | string
+  logoUrl?: Prisma.StringNullableWithAggregatesFilter<"Hackathon"> | string | null
   bannerImageUrl?: Prisma.StringNullableWithAggregatesFilter<"Hackathon"> | string | null
+  websiteUrl?: Prisma.StringNullableWithAggregatesFilter<"Hackathon"> | string | null
+  discordUrl?: Prisma.StringNullableWithAggregatesFilter<"Hackathon"> | string | null
+  contactEmail?: Prisma.StringNullableWithAggregatesFilter<"Hackathon"> | string | null
+  rules?: Prisma.StringNullableWithAggregatesFilter<"Hackathon"> | string | null
+  eligibility?: Prisma.StringNullableWithAggregatesFilter<"Hackathon"> | string | null
   prizePoolText?: Prisma.StringNullableWithAggregatesFilter<"Hackathon"> | string | null
   registrationFee?: Prisma.DecimalWithAggregatesFilter<"Hackathon"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringWithAggregatesFilter<"Hackathon"> | string
+  maxTeamSize?: Prisma.IntNullableWithAggregatesFilter<"Hackathon"> | number | null
+  registrationStartDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Hackathon"> | Date | string | null
+  registrationEndDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Hackathon"> | Date | string | null
+  startDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Hackathon"> | Date | string | null
+  endDate?: Prisma.DateTimeNullableWithAggregatesFilter<"Hackathon"> | Date | string | null
   submissionDeadline?: Prisma.DateTimeWithAggregatesFilter<"Hackathon"> | Date | string
   status?: Prisma.EnumHackathonStatusWithAggregatesFilter<"Hackathon"> | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolWithAggregatesFilter<"Hackathon"> | boolean
   isPremiumOnly?: Prisma.BoolWithAggregatesFilter<"Hackathon"> | boolean
-  maxTeamSize?: Prisma.IntNullableWithAggregatesFilter<"Hackathon"> | number | null
   categoryId?: Prisma.StringWithAggregatesFilter<"Hackathon"> | string
   organizerId?: Prisma.StringWithAggregatesFilter<"Hackathon"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Hackathon"> | Date | string
@@ -445,15 +565,25 @@ export type HackathonCreateInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutHackathonsInput
@@ -470,15 +600,25 @@ export type HackathonUncheckedCreateInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   categoryId: string
   organizerId: string
   createdAt?: Date | string
@@ -495,15 +635,25 @@ export type HackathonUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutHackathonsNestedInput
@@ -520,15 +670,25 @@ export type HackathonUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   organizerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -545,15 +705,25 @@ export type HackathonCreateManyInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   categoryId: string
   organizerId: string
   createdAt?: Date | string
@@ -566,15 +736,25 @@ export type HackathonUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -585,15 +765,25 @@ export type HackathonUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   organizerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -616,15 +806,25 @@ export type HackathonCountOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   shortDescription?: Prisma.SortOrder
   fullDescription?: Prisma.SortOrder
+  logoUrl?: Prisma.SortOrder
   bannerImageUrl?: Prisma.SortOrder
+  websiteUrl?: Prisma.SortOrder
+  discordUrl?: Prisma.SortOrder
+  contactEmail?: Prisma.SortOrder
+  rules?: Prisma.SortOrder
+  eligibility?: Prisma.SortOrder
   prizePoolText?: Prisma.SortOrder
   registrationFee?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  maxTeamSize?: Prisma.SortOrder
+  registrationStartDate?: Prisma.SortOrder
+  registrationEndDate?: Prisma.SortOrder
+  startDate?: Prisma.SortOrder
+  endDate?: Prisma.SortOrder
   submissionDeadline?: Prisma.SortOrder
   status?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPremiumOnly?: Prisma.SortOrder
-  maxTeamSize?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   organizerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -642,15 +842,25 @@ export type HackathonMaxOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   shortDescription?: Prisma.SortOrder
   fullDescription?: Prisma.SortOrder
+  logoUrl?: Prisma.SortOrder
   bannerImageUrl?: Prisma.SortOrder
+  websiteUrl?: Prisma.SortOrder
+  discordUrl?: Prisma.SortOrder
+  contactEmail?: Prisma.SortOrder
+  rules?: Prisma.SortOrder
+  eligibility?: Prisma.SortOrder
   prizePoolText?: Prisma.SortOrder
   registrationFee?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  maxTeamSize?: Prisma.SortOrder
+  registrationStartDate?: Prisma.SortOrder
+  registrationEndDate?: Prisma.SortOrder
+  startDate?: Prisma.SortOrder
+  endDate?: Prisma.SortOrder
   submissionDeadline?: Prisma.SortOrder
   status?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPremiumOnly?: Prisma.SortOrder
-  maxTeamSize?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   organizerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -663,15 +873,25 @@ export type HackathonMinOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   shortDescription?: Prisma.SortOrder
   fullDescription?: Prisma.SortOrder
+  logoUrl?: Prisma.SortOrder
   bannerImageUrl?: Prisma.SortOrder
+  websiteUrl?: Prisma.SortOrder
+  discordUrl?: Prisma.SortOrder
+  contactEmail?: Prisma.SortOrder
+  rules?: Prisma.SortOrder
+  eligibility?: Prisma.SortOrder
   prizePoolText?: Prisma.SortOrder
   registrationFee?: Prisma.SortOrder
   currency?: Prisma.SortOrder
+  maxTeamSize?: Prisma.SortOrder
+  registrationStartDate?: Prisma.SortOrder
+  registrationEndDate?: Prisma.SortOrder
+  startDate?: Prisma.SortOrder
+  endDate?: Prisma.SortOrder
   submissionDeadline?: Prisma.SortOrder
   status?: Prisma.SortOrder
   isFeatured?: Prisma.SortOrder
   isPremiumOnly?: Prisma.SortOrder
-  maxTeamSize?: Prisma.SortOrder
   categoryId?: Prisma.SortOrder
   organizerId?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
@@ -780,16 +1000,16 @@ export type DecimalFieldUpdateOperationsInput = {
   divide?: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type EnumHackathonStatusFieldUpdateOperationsInput = {
-  set?: $Enums.HackathonStatus
-}
-
 export type NullableIntFieldUpdateOperationsInput = {
   set?: number | null
   increment?: number
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type EnumHackathonStatusFieldUpdateOperationsInput = {
+  set?: $Enums.HackathonStatus
 }
 
 export type HackathonCreateNestedOneWithoutRewardsInput = {
@@ -854,15 +1074,25 @@ export type HackathonCreateWithoutOrganizerInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutHackathonsInput
@@ -878,15 +1108,25 @@ export type HackathonUncheckedCreateWithoutOrganizerInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   categoryId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -931,15 +1171,25 @@ export type HackathonScalarWhereInput = {
   slug?: Prisma.StringFilter<"Hackathon"> | string
   shortDescription?: Prisma.StringFilter<"Hackathon"> | string
   fullDescription?: Prisma.StringFilter<"Hackathon"> | string
+  logoUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   bannerImageUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  websiteUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  discordUrl?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  contactEmail?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  rules?: Prisma.StringNullableFilter<"Hackathon"> | string | null
+  eligibility?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   prizePoolText?: Prisma.StringNullableFilter<"Hackathon"> | string | null
   registrationFee?: Prisma.DecimalFilter<"Hackathon"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFilter<"Hackathon"> | string
+  maxTeamSize?: Prisma.IntNullableFilter<"Hackathon"> | number | null
+  registrationStartDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  registrationEndDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  startDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
+  endDate?: Prisma.DateTimeNullableFilter<"Hackathon"> | Date | string | null
   submissionDeadline?: Prisma.DateTimeFilter<"Hackathon"> | Date | string
   status?: Prisma.EnumHackathonStatusFilter<"Hackathon"> | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFilter<"Hackathon"> | boolean
   isPremiumOnly?: Prisma.BoolFilter<"Hackathon"> | boolean
-  maxTeamSize?: Prisma.IntNullableFilter<"Hackathon"> | number | null
   categoryId?: Prisma.StringFilter<"Hackathon"> | string
   organizerId?: Prisma.StringFilter<"Hackathon"> | string
   createdAt?: Prisma.DateTimeFilter<"Hackathon"> | Date | string
@@ -952,15 +1202,25 @@ export type HackathonCreateWithoutCategoryInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   organizer: Prisma.UserCreateNestedOneWithoutOrganizedHackathonsInput
@@ -976,15 +1236,25 @@ export type HackathonUncheckedCreateWithoutCategoryInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   organizerId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1026,15 +1296,25 @@ export type HackathonCreateWithoutRewardsInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutHackathonsInput
@@ -1050,15 +1330,25 @@ export type HackathonUncheckedCreateWithoutRewardsInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   categoryId: string
   organizerId: string
   createdAt?: Date | string
@@ -1090,15 +1380,25 @@ export type HackathonUpdateWithoutRewardsInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutHackathonsNestedInput
@@ -1114,15 +1414,25 @@ export type HackathonUncheckedUpdateWithoutRewardsInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   organizerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1138,15 +1448,25 @@ export type HackathonCreateWithoutHackathonWinnersInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutHackathonsInput
@@ -1162,15 +1482,25 @@ export type HackathonUncheckedCreateWithoutHackathonWinnersInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   categoryId: string
   organizerId: string
   createdAt?: Date | string
@@ -1202,15 +1532,25 @@ export type HackathonUpdateWithoutHackathonWinnersInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutHackathonsNestedInput
@@ -1226,15 +1566,25 @@ export type HackathonUncheckedUpdateWithoutHackathonWinnersInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   organizerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1250,15 +1600,25 @@ export type HackathonCreateWithoutBookmarksInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutHackathonsInput
@@ -1274,15 +1634,25 @@ export type HackathonUncheckedCreateWithoutBookmarksInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   categoryId: string
   organizerId: string
   createdAt?: Date | string
@@ -1314,15 +1684,25 @@ export type HackathonUpdateWithoutBookmarksInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutHackathonsNestedInput
@@ -1338,15 +1718,25 @@ export type HackathonUncheckedUpdateWithoutBookmarksInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   organizerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1362,15 +1752,25 @@ export type HackathonCreateWithoutSubmissionsInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   createdAt?: Date | string
   updatedAt?: Date | string
   category: Prisma.CategoryCreateNestedOneWithoutHackathonsInput
@@ -1386,15 +1786,25 @@ export type HackathonUncheckedCreateWithoutSubmissionsInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   categoryId: string
   organizerId: string
   createdAt?: Date | string
@@ -1426,15 +1836,25 @@ export type HackathonUpdateWithoutSubmissionsInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutHackathonsNestedInput
@@ -1450,15 +1870,25 @@ export type HackathonUncheckedUpdateWithoutSubmissionsInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   organizerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1474,15 +1904,25 @@ export type HackathonCreateManyOrganizerInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   categoryId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1494,15 +1934,25 @@ export type HackathonUpdateWithoutOrganizerInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   category?: Prisma.CategoryUpdateOneRequiredWithoutHackathonsNestedInput
@@ -1518,15 +1968,25 @@ export type HackathonUncheckedUpdateWithoutOrganizerInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1542,15 +2002,25 @@ export type HackathonUncheckedUpdateManyWithoutOrganizerInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   categoryId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1562,15 +2032,25 @@ export type HackathonCreateManyCategoryInput = {
   slug: string
   shortDescription: string
   fullDescription: string
+  logoUrl?: string | null
   bannerImageUrl?: string | null
+  websiteUrl?: string | null
+  discordUrl?: string | null
+  contactEmail?: string | null
+  rules?: string | null
+  eligibility?: string | null
   prizePoolText?: string | null
   registrationFee?: runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: string
+  maxTeamSize?: number | null
+  registrationStartDate?: Date | string | null
+  registrationEndDate?: Date | string | null
+  startDate?: Date | string | null
+  endDate?: Date | string | null
   submissionDeadline: Date | string
   status?: $Enums.HackathonStatus
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: number | null
   organizerId: string
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1582,15 +2062,25 @@ export type HackathonUpdateWithoutCategoryInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   organizer?: Prisma.UserUpdateOneRequiredWithoutOrganizedHackathonsNestedInput
@@ -1606,15 +2096,25 @@ export type HackathonUncheckedUpdateWithoutCategoryInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   organizerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1630,15 +2130,25 @@ export type HackathonUncheckedUpdateManyWithoutCategoryInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   shortDescription?: Prisma.StringFieldUpdateOperationsInput | string
   fullDescription?: Prisma.StringFieldUpdateOperationsInput | string
+  logoUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   bannerImageUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  websiteUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  discordUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  contactEmail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  rules?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  eligibility?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   prizePoolText?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   registrationFee?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   currency?: Prisma.StringFieldUpdateOperationsInput | string
+  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  registrationStartDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  registrationEndDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  startDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  endDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   submissionDeadline?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   status?: Prisma.EnumHackathonStatusFieldUpdateOperationsInput | $Enums.HackathonStatus
   isFeatured?: Prisma.BoolFieldUpdateOperationsInput | boolean
   isPremiumOnly?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  maxTeamSize?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   organizerId?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1708,15 +2218,25 @@ export type HackathonSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   slug?: boolean
   shortDescription?: boolean
   fullDescription?: boolean
+  logoUrl?: boolean
   bannerImageUrl?: boolean
+  websiteUrl?: boolean
+  discordUrl?: boolean
+  contactEmail?: boolean
+  rules?: boolean
+  eligibility?: boolean
   prizePoolText?: boolean
   registrationFee?: boolean
   currency?: boolean
+  maxTeamSize?: boolean
+  registrationStartDate?: boolean
+  registrationEndDate?: boolean
+  startDate?: boolean
+  endDate?: boolean
   submissionDeadline?: boolean
   status?: boolean
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: boolean
   categoryId?: boolean
   organizerId?: boolean
   createdAt?: boolean
@@ -1736,15 +2256,25 @@ export type HackathonSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   slug?: boolean
   shortDescription?: boolean
   fullDescription?: boolean
+  logoUrl?: boolean
   bannerImageUrl?: boolean
+  websiteUrl?: boolean
+  discordUrl?: boolean
+  contactEmail?: boolean
+  rules?: boolean
+  eligibility?: boolean
   prizePoolText?: boolean
   registrationFee?: boolean
   currency?: boolean
+  maxTeamSize?: boolean
+  registrationStartDate?: boolean
+  registrationEndDate?: boolean
+  startDate?: boolean
+  endDate?: boolean
   submissionDeadline?: boolean
   status?: boolean
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: boolean
   categoryId?: boolean
   organizerId?: boolean
   createdAt?: boolean
@@ -1759,15 +2289,25 @@ export type HackathonSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   slug?: boolean
   shortDescription?: boolean
   fullDescription?: boolean
+  logoUrl?: boolean
   bannerImageUrl?: boolean
+  websiteUrl?: boolean
+  discordUrl?: boolean
+  contactEmail?: boolean
+  rules?: boolean
+  eligibility?: boolean
   prizePoolText?: boolean
   registrationFee?: boolean
   currency?: boolean
+  maxTeamSize?: boolean
+  registrationStartDate?: boolean
+  registrationEndDate?: boolean
+  startDate?: boolean
+  endDate?: boolean
   submissionDeadline?: boolean
   status?: boolean
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: boolean
   categoryId?: boolean
   organizerId?: boolean
   createdAt?: boolean
@@ -1782,22 +2322,32 @@ export type HackathonSelectScalar = {
   slug?: boolean
   shortDescription?: boolean
   fullDescription?: boolean
+  logoUrl?: boolean
   bannerImageUrl?: boolean
+  websiteUrl?: boolean
+  discordUrl?: boolean
+  contactEmail?: boolean
+  rules?: boolean
+  eligibility?: boolean
   prizePoolText?: boolean
   registrationFee?: boolean
   currency?: boolean
+  maxTeamSize?: boolean
+  registrationStartDate?: boolean
+  registrationEndDate?: boolean
+  startDate?: boolean
+  endDate?: boolean
   submissionDeadline?: boolean
   status?: boolean
   isFeatured?: boolean
   isPremiumOnly?: boolean
-  maxTeamSize?: boolean
   categoryId?: boolean
   organizerId?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type HackathonOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "shortDescription" | "fullDescription" | "bannerImageUrl" | "prizePoolText" | "registrationFee" | "currency" | "submissionDeadline" | "status" | "isFeatured" | "isPremiumOnly" | "maxTeamSize" | "categoryId" | "organizerId" | "createdAt" | "updatedAt", ExtArgs["result"]["hackathon"]>
+export type HackathonOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "title" | "slug" | "shortDescription" | "fullDescription" | "logoUrl" | "bannerImageUrl" | "websiteUrl" | "discordUrl" | "contactEmail" | "rules" | "eligibility" | "prizePoolText" | "registrationFee" | "currency" | "maxTeamSize" | "registrationStartDate" | "registrationEndDate" | "startDate" | "endDate" | "submissionDeadline" | "status" | "isFeatured" | "isPremiumOnly" | "categoryId" | "organizerId" | "createdAt" | "updatedAt", ExtArgs["result"]["hackathon"]>
 export type HackathonInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   category?: boolean | Prisma.CategoryDefaultArgs<ExtArgs>
   organizer?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1832,15 +2382,25 @@ export type $HackathonPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     slug: string
     shortDescription: string
     fullDescription: string
+    logoUrl: string | null
     bannerImageUrl: string | null
+    websiteUrl: string | null
+    discordUrl: string | null
+    contactEmail: string | null
+    rules: string | null
+    eligibility: string | null
     prizePoolText: string | null
     registrationFee: runtime.Decimal
     currency: string
+    maxTeamSize: number | null
+    registrationStartDate: Date | null
+    registrationEndDate: Date | null
+    startDate: Date | null
+    endDate: Date | null
     submissionDeadline: Date
     status: $Enums.HackathonStatus
     isFeatured: boolean
     isPremiumOnly: boolean
-    maxTeamSize: number | null
     categoryId: string
     organizerId: string
     createdAt: Date
@@ -2279,15 +2839,25 @@ export interface HackathonFieldRefs {
   readonly slug: Prisma.FieldRef<"Hackathon", 'String'>
   readonly shortDescription: Prisma.FieldRef<"Hackathon", 'String'>
   readonly fullDescription: Prisma.FieldRef<"Hackathon", 'String'>
+  readonly logoUrl: Prisma.FieldRef<"Hackathon", 'String'>
   readonly bannerImageUrl: Prisma.FieldRef<"Hackathon", 'String'>
+  readonly websiteUrl: Prisma.FieldRef<"Hackathon", 'String'>
+  readonly discordUrl: Prisma.FieldRef<"Hackathon", 'String'>
+  readonly contactEmail: Prisma.FieldRef<"Hackathon", 'String'>
+  readonly rules: Prisma.FieldRef<"Hackathon", 'String'>
+  readonly eligibility: Prisma.FieldRef<"Hackathon", 'String'>
   readonly prizePoolText: Prisma.FieldRef<"Hackathon", 'String'>
   readonly registrationFee: Prisma.FieldRef<"Hackathon", 'Decimal'>
   readonly currency: Prisma.FieldRef<"Hackathon", 'String'>
+  readonly maxTeamSize: Prisma.FieldRef<"Hackathon", 'Int'>
+  readonly registrationStartDate: Prisma.FieldRef<"Hackathon", 'DateTime'>
+  readonly registrationEndDate: Prisma.FieldRef<"Hackathon", 'DateTime'>
+  readonly startDate: Prisma.FieldRef<"Hackathon", 'DateTime'>
+  readonly endDate: Prisma.FieldRef<"Hackathon", 'DateTime'>
   readonly submissionDeadline: Prisma.FieldRef<"Hackathon", 'DateTime'>
   readonly status: Prisma.FieldRef<"Hackathon", 'HackathonStatus'>
   readonly isFeatured: Prisma.FieldRef<"Hackathon", 'Boolean'>
   readonly isPremiumOnly: Prisma.FieldRef<"Hackathon", 'Boolean'>
-  readonly maxTeamSize: Prisma.FieldRef<"Hackathon", 'Int'>
   readonly categoryId: Prisma.FieldRef<"Hackathon", 'String'>
   readonly organizerId: Prisma.FieldRef<"Hackathon", 'String'>
   readonly createdAt: Prisma.FieldRef<"Hackathon", 'DateTime'>

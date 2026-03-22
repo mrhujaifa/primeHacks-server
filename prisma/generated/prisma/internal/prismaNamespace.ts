@@ -1511,15 +1511,25 @@ export const HackathonScalarFieldEnum = {
   slug: 'slug',
   shortDescription: 'shortDescription',
   fullDescription: 'fullDescription',
+  logoUrl: 'logoUrl',
   bannerImageUrl: 'bannerImageUrl',
+  websiteUrl: 'websiteUrl',
+  discordUrl: 'discordUrl',
+  contactEmail: 'contactEmail',
+  rules: 'rules',
+  eligibility: 'eligibility',
   prizePoolText: 'prizePoolText',
   registrationFee: 'registrationFee',
   currency: 'currency',
+  maxTeamSize: 'maxTeamSize',
+  registrationStartDate: 'registrationStartDate',
+  registrationEndDate: 'registrationEndDate',
+  startDate: 'startDate',
+  endDate: 'endDate',
   submissionDeadline: 'submissionDeadline',
   status: 'status',
   isFeatured: 'isFeatured',
   isPremiumOnly: 'isPremiumOnly',
-  maxTeamSize: 'maxTeamSize',
   categoryId: 'categoryId',
   organizerId: 'organizerId',
   createdAt: 'createdAt',
@@ -1725,20 +1735,6 @@ export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMo
 
 
 /**
- * Reference to a field of type 'HackathonStatus'
- */
-export type EnumHackathonStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HackathonStatus'>
-    
-
-
-/**
- * Reference to a field of type 'HackathonStatus[]'
- */
-export type ListEnumHackathonStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HackathonStatus[]'>
-    
-
-
-/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -1749,6 +1745,20 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'HackathonStatus'
+ */
+export type EnumHackathonStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HackathonStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'HackathonStatus[]'
+ */
+export type ListEnumHackathonStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HackathonStatus[]'>
     
 
 
