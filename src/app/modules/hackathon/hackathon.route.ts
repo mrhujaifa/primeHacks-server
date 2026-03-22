@@ -14,4 +14,6 @@ router.post(
   HackathonControllers.createHackathon,
 );
 
+router.get("/", HackathonControllers.getAllHackathons);
+
 export const HackathonRoutes = router;
