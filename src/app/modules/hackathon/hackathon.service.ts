@@ -2,7 +2,10 @@ import status from "http-status";
 import { prisma } from "../../../lib/prisma";
 import AppError from "../../errors/AppError";
 import { IRequestUser } from "../../types/user";
-import { ICreateHackathonPayload } from "./hackathon.interface";
+import {
+  ICreateHackathonPayload,
+  IUpdateHackathonPayload,
+} from "./hackathon.interface";
 import {
   HackathonStatus,
   UserRole,
@@ -157,7 +160,139 @@ const getAllHackathon = async () => {
   return allHackathons;
 };
 
+//* Get own Hackathons
+const getOwnHackathons = async (user: IRequestUser) => {
+  const existingOrganizer = await prisma.user.findFirst({
+    where: {
+      id: user.userId,
+      role: {
+        in: [UserRole.ADMIN, UserRole.ORGANIZER],
+      },
+    },
+    select: {
+      id: true,
+      role: true,
+      name: true,
+      email: true,
+    },
+  });
+
+  if (!existingOrganizer) {
+    throw new AppError(
+      status.FORBIDDEN,
+      "You are not authorized to access hackathons",
+    );
+  }
+
+  const hackathons = await prisma.hackathon.findMany({
+    where: {
+      organizerId: existingOrganizer.id,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+    select: {
+      id: true,
+      title: true,
+      slug: true,
+      shortDescription: true,
+      fullDescription: true,
+
+      logoUrl: true,
+      bannerImageUrl: true,
+      websiteUrl: true,
+      discordUrl: true,
+      contactEmail: true,
+
+      rules: true,
+      eligibility: true,
+      prizePoolText: true,
+      registrationFee: true,
+      currency: true,
+      maxTeamSize: true,
+
+      registrationStartDate: true,
+      registrationEndDate: true,
+      startDate: true,
+      endDate: true,
+      submissionDeadline: true,
+
+      status: true,
+      isFeatured: true,
+      isPremiumOnly: true,
+
+      createdAt: true,
+      updatedAt: true,
+
+      category: {
+        select: {
+          id: true,
+          name: true,
+          slug: true,
+        },
+      },
+    },
+  });
+
+  return hackathons;
+};
+
+// //* Get Single Hackathon
+// const getSingleHackathon = async (user: IRequestUser) => {
+//   const existingUser =
+// };
+
+//* update hackathon
+const updateHackathon = async (
+  user: IRequestUser,
+  hackathonId: string,
+  payload: IUpdateHackathonPayload,
+) => {
+  const existingUser = await prisma.user.findUnique({
+    where: {
+      id: user.userId,
+    },
+  });
+
+  if (!existingUser) {
+    throw new AppError(status.UNAUTHORIZED, "User not found");
+  }
+
+  const existingHackathon = await prisma.hackathon.findUnique({
+    where: {
+      id: hackathonId,
+    },
+  });
+
+  if (!existingHackathon) {
+    throw new AppError(status.NOT_FOUND, "Hackathon not found");
+  }
+
+  // owner check
+  if (existingHackathon.organizerId !== user.userId) {
+    throw new AppError(
+      status.FORBIDDEN,
+      "You are not allowed to update this hackathon",
+    );
+  }
+
+  const filteredPayload = Object.fromEntries(
+    Object.entries(payload).filter(([_, value]) => value !== undefined),
+  );
+
+  const updatedHackathon = await prisma.hackathon.update({
+    where: {
+      id: hackathonId,
+    },
+    data: filteredPayload,
+  });
+
+  return updatedHackathon;
+};
+
 export const HackathonServices = {
   createHackathon,
   getAllHackathon,
+  getOwnHackathons,
+  updateHackathon,
 };

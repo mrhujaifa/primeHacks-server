@@ -7,6 +7,10 @@ const router = Router();
 
 router.post("/register", AuthController.registerUser);
 router.post("/login", AuthController.loginUser);
-router.get("/profile", verifyAuth(UserRole.USER), AuthController.getMe);
+router.get(
+  "/me",
+  verifyAuth(UserRole.USER, UserRole.ORGANIZER, UserRole.ADMIN),
+  AuthController.getMe,
+);
 
 export const AuthRoutes = router;

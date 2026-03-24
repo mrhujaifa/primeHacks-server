@@ -124,31 +124,28 @@ const loginUser = async (payload: ILoginUser) => {
     throw new AppError(status.INTERNAL_SERVER_ERROR, "User login failed");
   }
 };
+
 const getMe = async (user: IRequestUser) => {
-  const isUserExists = await prisma.user.findUnique({
-    where: {
-      id: user.userId,
-    },
-    include: {
-      sessions: {
-        include: {
-          user: {
-            select: {
-              name: true,
-              email: true,
-              role: true,
-            },
-          },
-        },
-      },
+  const data = await prisma.user.findUnique({
+    where: { id: user.userId },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      image: true,
+      role: true,
+      status: true,
+      emailVerified: true,
+      createdAt: true,
+      updatedAt: true,
     },
   });
 
-  if (!isUserExists) {
+  if (!data) {
     throw new AppError(status.NOT_FOUND, "User not found");
   }
 
-  return isUserExists;
+  return data;
 };
 
 export const AuthServices = {

@@ -5,6 +5,9 @@ import status from "http-status";
 import { AuthServices } from "./auth.service";
 import { IRegisterUser } from "./auth.interface";
 import { tokenUtils } from "../../utils/token";
+import { auth } from "../../../lib/auth";
+import AppError from "../../errors/AppError";
+import { fromNodeHeaders } from "better-auth/node";
 
 //* Register user controller
 const registerUser = catchAsync(async (req: Request, res: Response) => {
@@ -12,9 +15,9 @@ const registerUser = catchAsync(async (req: Request, res: Response) => {
 
   const result = await AuthServices.registerUser(paylaod);
   const { accessToken, token, refreshToken } = result;
-  // tokenUtils.betterAuthSessionCookie(res, token as string);
-  // tokenUtils.setAccessTokenCookie(res, accessToken);
-  // tokenUtils.setRefreshTokenCookie(res, refreshToken);
+  tokenUtils.betterAuthSessionCookie(res, token as string);
+  tokenUtils.setAccessTokenCookie(res, accessToken);
+  tokenUtils.setRefreshTokenCookie(res, refreshToken);
 
   sendResponse(res, {
     httpStatusCode: status.CREATED,
@@ -43,14 +46,13 @@ const loginUser = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
-const getMe = catchAsync(async (req: Request, res: Response) => {
+const getMe = catchAsync(async (req, res) => {
   const user = (req as any).user;
-
   const result = await AuthServices.getMe(user);
   sendResponse(res, {
-    httpStatusCode: status.OK,
     success: true,
-    message: "get me successfull",
+    httpStatusCode: status.OK,
+    message: "User fetched successfully",
     data: result,
   });
 });
