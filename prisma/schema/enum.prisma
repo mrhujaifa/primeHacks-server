@@ -12,9 +12,11 @@ enum UserStatus {
 
 enum HackathonStatus {
     DRAFT
+    ONGOING
     UPCOMING
+    COMPLETED
     ACTIVE
-    CLOSED
+    ENDED
 }
 
 enum SubmissionStatus {

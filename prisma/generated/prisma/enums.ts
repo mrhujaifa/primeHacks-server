@@ -29,9 +29,10 @@ export type UserStatus = (typeof UserStatus)[keyof typeof UserStatus]
 
 export const HackathonStatus = {
   DRAFT: 'DRAFT',
+  ONGOING: 'ONGOING',
   UPCOMING: 'UPCOMING',
-  ACTIVE: 'ACTIVE',
-  CLOSED: 'CLOSED'
+  COMPLETED: 'COMPLETED',
+  ENDED: 'ENDED'
 } as const
 
 export type HackathonStatus = (typeof HackathonStatus)[keyof typeof HackathonStatus]

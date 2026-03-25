@@ -75,9 +75,26 @@ const updateHackathon = catchAsync(async (req, res) => {
   });
 });
 
+//* Delete hackathon
+const deleteHackathon = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const result = await HackathonServices.deleteHackathon(
+    (req as any).user,
+    id as string,
+  );
+
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    success: true,
+    message: "Hackathon deleted successfully",
+    data: result,
+  });
+});
+
 export const HackathonControllers = {
   createHackathon,
   getAllHackathons,
   getOwnHackathons,
   updateHackathon,
+  deleteHackathon,
 };

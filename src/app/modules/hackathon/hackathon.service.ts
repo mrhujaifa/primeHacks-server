@@ -12,6 +12,7 @@ import {
   UserStatus,
 } from "../../../../prisma/generated/prisma/enums";
 import { SlugUtils } from "../../utils/slugUtils";
+import { getUserOrThrow } from "../user/user.utils";
 
 //* create Hackathon
 
@@ -290,9 +291,51 @@ const updateHackathon = async (
   return updatedHackathon;
 };
 
+//* Hanlde Delete Hackathons
+const deleteHackathon = async (user: IRequestUser, hackathonId: string) => {
+  await getUserOrThrow(user.userId);
+
+  const existingHackathon = await prisma.hackathon.findUnique({
+    where: {
+      id: hackathonId,
+    },
+    select: {
+      id: true,
+      organizerId: true,
+      title: true,
+      status: true,
+    },
+  });
+
+  if (!existingHackathon) {
+    throw new AppError(status.NOT_FOUND, "Hackathon not found");
+  }
+
+  // owner check
+  if (existingHackathon.organizerId !== user.userId) {
+    throw new AppError(
+      status.FORBIDDEN,
+      "You are not allowed to delete this hackathon",
+    );
+  }
+
+  const deletedHackathon = await prisma.hackathon.delete({
+    where: {
+      id: hackathonId,
+    },
+    select: {
+      id: true,
+      title: true,
+    },
+  });
+
+  return deletedHackathon;
+};
+
 export const HackathonServices = {
   createHackathon,
   getAllHackathon,
   getOwnHackathons,
   updateHackathon,
+  deleteHackathon,
 };

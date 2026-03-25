@@ -27,4 +27,10 @@ router.patch(
   HackathonControllers.updateHackathon,
 );
 
+router.delete(
+  "/:id",
+  verifyAuth(UserRole.ORGANIZER, UserRole.ADMIN),
+  HackathonControllers.deleteHackathon,
+);
+
 export const HackathonRoutes = router;
