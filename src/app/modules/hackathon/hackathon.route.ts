@@ -3,7 +3,10 @@ import { HackathonControllers } from "./hackathon.controller";
 import validateRequest from "../../middlewares/validation/validateRequest";
 import { verifyAuth } from "../../middlewares/auth/verifyAuth";
 import { UserRole } from "../../../../prisma/generated/prisma/enums";
-import { createHackathonSchema } from "./hackathon.validation";
+import {
+  createHackathonSchema,
+  updateHackathonValidationSchema,
+} from "./hackathon.validation";
 
 const router = Router();
 
@@ -21,10 +24,10 @@ router.get(
   HackathonControllers.getOwnHackathons,
 );
 
-router.patch(
+router.get(
   "/:id",
-  verifyAuth(UserRole.ORGANIZER, UserRole.ADMIN),
-  HackathonControllers.updateHackathon,
+  verifyAuth(UserRole.ADMIN, UserRole.ORGANIZER),
+  HackathonControllers.getHackathonById,
 );
 
 router.delete(
@@ -33,4 +36,10 @@ router.delete(
   HackathonControllers.deleteHackathon,
 );
 
+router.patch(
+  "/:id",
+  verifyAuth(UserRole.ORGANIZER, UserRole.ADMIN),
+  validateRequest(updateHackathonValidationSchema),
+  HackathonControllers.updateHackathon,
+);
 export const HackathonRoutes = router;

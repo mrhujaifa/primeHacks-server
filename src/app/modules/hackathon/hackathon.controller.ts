@@ -32,16 +32,18 @@ const getAllHackathons = catchAsync(async (req, res) => {
 });
 
 //* Get single Hackathon
-// const getSingleHackathon = catchAsync(async (req, res) => {
-//   const user = (req as any).user;
-//   const result = await HackathonServices.getSingleHackathon(user);
+const getHackathonById = catchAsync(async (req, res) => {
+  const user = (req as any).user;
+  const { id } = req.params;
+  const result = await HackathonServices.getHackathonById(user, id as string);
 
-//   sendResponse(res, {
-//     httpStatusCode: status.OK,
-//     success: true,
-//     message: "Single hackathon retriened successfully",
-//   });
-// });
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    success: true,
+    message: "Single hackathon retriened successfully",
+    data: result,
+  });
+});
 
 //* Get Own Hackathons
 const getOwnHackathons = catchAsync(async (req, res) => {
@@ -95,6 +97,7 @@ export const HackathonControllers = {
   createHackathon,
   getAllHackathons,
   getOwnHackathons,
+  getHackathonById,
   updateHackathon,
   deleteHackathon,
 };

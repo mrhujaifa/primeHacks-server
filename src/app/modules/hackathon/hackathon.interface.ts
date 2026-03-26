@@ -56,9 +56,8 @@ export interface ICreateHackathonPayload {
   winners?: IHackathonWinnerPayload[];
 }
 
-export interface IUpdateHackathonPayload {
+export type IUpdateHackathonPayload = {
   title?: string;
-  slug?: string;
   shortDescription?: string;
   fullDescription?: string;
 
@@ -72,7 +71,7 @@ export interface IUpdateHackathonPayload {
   eligibility?: string | null;
 
   prizePoolText?: string | null;
-  registrationFee?: string | number;
+  registrationFee?: number;
   currency?: string;
 
   maxTeamSize?: number | null;
@@ -88,8 +87,4 @@ export interface IUpdateHackathonPayload {
   isPremiumOnly?: boolean;
 
   categoryId?: string;
-  organizerId?: string;
-
-  rewards?: IHackathonRewardPayload[];
-  winners?: IHackathonWinnerPayload[];
-}
+};

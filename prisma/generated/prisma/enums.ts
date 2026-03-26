@@ -32,6 +32,7 @@ export const HackathonStatus = {
   ONGOING: 'ONGOING',
   UPCOMING: 'UPCOMING',
   COMPLETED: 'COMPLETED',
+  ACTIVE: 'ACTIVE',
   ENDED: 'ENDED'
 } as const
 

@@ -238,10 +238,61 @@ const getOwnHackathons = async (user: IRequestUser) => {
   return hackathons;
 };
 
-// //* Get Single Hackathon
-// const getSingleHackathon = async (user: IRequestUser) => {
-//   const existingUser =
-// };
+const getHackathonById = async (user: IRequestUser, hackathonId: string) => {
+  const existingUser = await prisma.user.findUnique({
+    where: {
+      id: user.userId,
+    },
+    select: {
+      id: true,
+      role: true,
+      status: true,
+    },
+  });
+
+  if (!existingUser) {
+    throw new AppError(status.UNAUTHORIZED, "User not found");
+  }
+
+  const existingHackathon = await prisma.hackathon.findUnique({
+    where: {
+      id: hackathonId,
+    },
+    include: {
+      category: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
+      organizer: {
+        select: {
+          id: true,
+          name: true,
+          email: true,
+        },
+      },
+      rewards: true,
+      hackathonWinners: true,
+    },
+  });
+
+  if (!existingHackathon) {
+    throw new AppError(status.NOT_FOUND, "Hackathon not found");
+  }
+
+  const isOwner = existingHackathon.organizerId === user.userId;
+  const isSuperAdmin = user.role === "ADMIN";
+
+  if (!isOwner && !isSuperAdmin) {
+    throw new AppError(
+      status.FORBIDDEN,
+      "You are not authorized to access this hackathon",
+    );
+  }
+
+  return existingHackathon;
+};
 
 //* update hackathon
 const updateHackathon = async (
@@ -335,6 +386,7 @@ const deleteHackathon = async (user: IRequestUser, hackathonId: string) => {
 export const HackathonServices = {
   createHackathon,
   getAllHackathon,
+  getHackathonById,
   getOwnHackathons,
   updateHackathon,
   deleteHackathon,

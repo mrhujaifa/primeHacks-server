@@ -32,3 +32,43 @@ export const createHackathonSchema = z.object({
 });
 
 export type ICreateHackathonPayload = z.infer<typeof createHackathonSchema>;
+
+export const updateHackathonValidationSchema = z.object({
+  title: z.string().min(3).max(150).optional(),
+  shortDescription: z.string().min(10).max(300).optional(),
+  fullDescription: z.string().min(30).optional(),
+
+  logoUrl: z.string().url().nullable().optional(),
+  bannerImageUrl: z.string().url().nullable().optional(),
+  websiteUrl: z.string().url().nullable().optional(),
+  discordUrl: z.string().url().nullable().optional(),
+  contactEmail: z.string().email().nullable().optional(),
+
+  rules: z.string().nullable().optional(),
+  eligibility: z.string().nullable().optional(),
+
+  prizePoolText: z.string().nullable().optional(),
+  registrationFee: z.number().min(0).optional(),
+  currency: z.string().min(2).max(10).optional(),
+
+  maxTeamSize: z.number().int().positive().nullable().optional(),
+
+  registrationStartDate: z.string().datetime().nullable().optional(),
+  registrationEndDate: z.string().datetime().nullable().optional(),
+  startDate: z.string().datetime().nullable().optional(),
+  endDate: z.string().datetime().nullable().optional(),
+  submissionDeadline: z.string().datetime().optional(),
+
+  status: z
+    .enum(["ONGOING", "DRAFT", "UPCOMING", "COMPLETED", "ACTIVE", "ENDED"])
+    .optional(),
+
+  isFeatured: z.boolean().optional(),
+  isPremiumOnly: z.boolean().optional(),
+
+  categoryId: z.string().optional(),
+});
+
+export type IUpdateHackathonPayload = z.infer<
+  typeof updateHackathonValidationSchema
+>;
