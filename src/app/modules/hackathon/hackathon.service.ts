@@ -328,6 +328,23 @@ const updateHackathon = async (
     );
   }
 
+  if (payload.categoryId) {
+    const isCategoryExists = await prisma.category.findUnique({
+      where: {
+        id: payload.categoryId,
+      },
+      select: {
+        id: true,
+        name: true,
+        slug: true,
+      },
+    });
+
+    if (!isCategoryExists) {
+      throw new AppError(status.BAD_REQUEST, "Please select a valid category.");
+    }
+  }
+
   const filteredPayload = Object.fromEntries(
     Object.entries(payload).filter(([_, value]) => value !== undefined),
   );
@@ -383,6 +400,18 @@ const deleteHackathon = async (user: IRequestUser, hackathonId: string) => {
   return deletedHackathon;
 };
 
+//* get Hackathon Categories
+const getAllHackathonCategories = async () => {
+  const getCategories = await prisma.category.findMany({
+    select: {
+      id: true,
+      name: true,
+    },
+  });
+
+  return getCategories;
+};
+
 export const HackathonServices = {
   createHackathon,
   getAllHackathon,
@@ -390,4 +419,5 @@ export const HackathonServices = {
   getOwnHackathons,
   updateHackathon,
   deleteHackathon,
+  getAllHackathonCategories,
 };

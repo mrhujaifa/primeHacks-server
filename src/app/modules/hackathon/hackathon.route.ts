@@ -23,6 +23,7 @@ router.get(
   verifyAuth(UserRole.ORGANIZER, UserRole.ADMIN),
   HackathonControllers.getOwnHackathons,
 );
+router.get("/category", HackathonControllers.getAllHackathonCategories);
 
 router.get(
   "/:id",
@@ -42,4 +43,5 @@ router.patch(
   validateRequest(updateHackathonValidationSchema),
   HackathonControllers.updateHackathon,
 );
+
 export const HackathonRoutes = router;

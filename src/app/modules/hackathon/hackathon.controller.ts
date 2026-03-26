@@ -93,6 +93,18 @@ const deleteHackathon = catchAsync(async (req, res) => {
   });
 });
 
+// * Get All Hackathon categories
+const getAllHackathonCategories = catchAsync(async (req, res) => {
+  const result = await HackathonServices.getAllHackathonCategories();
+
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    message: "Categories  fetched successfully",
+    success: true,
+    data: result,
+  });
+});
+
 export const HackathonControllers = {
   createHackathon,
   getAllHackathons,
@@ -100,4 +112,5 @@ export const HackathonControllers = {
   getHackathonById,
   updateHackathon,
   deleteHackathon,
+  getAllHackathonCategories,
 };
