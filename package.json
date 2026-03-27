@@ -2,26 +2,32 @@
   "name": "crypto-copilot-backend",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
-  "main": "/src/server.ts",
+  "main": "dist/src/server.js",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "start": "node dist/server.js",
+    "start": "node dist/src/server.js",
     "build": "tsc",
+    "typecheck": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1",
+    
     "lint": "eslint ./src/**/*",
     "migrate": "prisma migrate dev",
     "generate": "prisma generate",
     "studio": "prisma studio",
     "push": "prisma push",
     "pull": "prisma pull",
-    "deploy": "prisma deploy",
+    "deploy": "prisma migrate deploy",
     "format": "prisma format",
-    "seed": "tsx src/scripts/seed.ts"
+    "seed": "tsx src/scripts/seed.ts",
+    "postinstall": "prisma generate",
+    "vercel-build": "pnpm build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "20.x"
+  },
   "packageManager": "pnpm@10.24.0",
   "dependencies": {
     "@prisma/adapter-pg": "^7.4.2",

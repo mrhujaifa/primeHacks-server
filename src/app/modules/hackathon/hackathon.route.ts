@@ -5,7 +5,7 @@ import { verifyAuth } from "../../middlewares/auth/verifyAuth";
 import { UserRole } from "../../../../prisma/generated/prisma/enums";
 import {
   createHackathonSchema,
-  updateHackathonValidationSchema,
+  // updateHackathonValidationSchema,
 } from "./hackathon.validation";
 
 const router = Router();
@@ -40,7 +40,7 @@ router.delete(
 router.patch(
   "/:id",
   verifyAuth(UserRole.ORGANIZER, UserRole.ADMIN),
-  validateRequest(updateHackathonValidationSchema),
+  // validateRequest(updateHackathonValidationSchema),
   HackathonControllers.updateHackathon,
 );
 

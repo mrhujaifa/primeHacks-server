@@ -1,6 +1,6 @@
 import { JwtPayload, SignOptions } from "jsonwebtoken";
 import { jwtUtils } from "./jwt";
-import { envVars } from "../../config/env";
+
 import { CookieUtils } from "./cookie";
 import { Response } from "express";
 
@@ -8,8 +8,8 @@ import { Response } from "express";
 const getAccessToken = async (payload: JwtPayload) => {
   const accessToken = jwtUtils.createToken(
     payload,
-    envVars.ACCESS_TOKEN_SECRET,
-    { expiresIn: envVars.ACCESS_TOKEN_EXPIRES_IN } as SignOptions,
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN } as SignOptions,
   );
 
   return accessToken;
@@ -19,9 +19,9 @@ const getAccessToken = async (payload: JwtPayload) => {
 const getRefreshToken = (payload: JwtPayload) => {
   const refreshToken = jwtUtils.createToken(
     payload,
-    envVars.REFRESH_TOKEN_SECRET,
+    process.env.REFRESH_TOKEN_SECRET,
     {
-      expiresIn: envVars.REFRESH_TOKEN_EXPIRES_IN,
+      expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN,
     } as SignOptions,
   );
   return refreshToken;
@@ -33,7 +33,7 @@ const setAccessTokenCookie = (res: any, accessToken: string) => {
     httpOnly: true,
     secure: true,
     path: "/",
-    sameSite: envVars.NODE_ENV === "production" ? "none" : "lax",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     // 1 day
     maxAge: 60 * 60 * 60 * 24,
   });
@@ -57,7 +57,7 @@ const betterAuthSessionCookie = (res: Response, token: string) => {
     httpOnly: true,
     secure: true,
     path: "/",
-    sameSite: envVars.NODE_ENV === "production" ? "none" : "lax",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
     // 1 day
     maxAge: 60 * 60 * 60 * 24,
   });

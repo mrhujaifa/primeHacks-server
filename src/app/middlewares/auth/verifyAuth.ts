@@ -9,7 +9,6 @@ import { CookieUtils } from "../../utils/cookie";
 import { prisma } from "../../../lib/prisma";
 import AppError from "../../errors/AppError";
 import { jwtUtils } from "../../utils/jwt";
-import { envVars } from "../../../config/env";
 
 export const verifyAuth =
   (...authRoles: UserRole[]) =>
@@ -100,7 +99,7 @@ export const verifyAuth =
 
       const verifiedToken = jwtUtils.verifyToken(
         accessToken,
-        envVars.ACCESS_TOKEN_SECRET,
+        process.env.ACCESS_TOKEN_SECRET as string,
       );
 
       if (!verifiedToken.success) {

@@ -3,7 +3,6 @@ import { IndexRoutes } from "./app/routes";
 import { globalErrorHandler } from "./app/middlewares/errors/globalErrorHandler";
 import { notFound } from "./app/middlewares/errors/notFound";
 import cors from "cors";
-import { envVars } from "./config/env";
 import cookieParser from "cookie-parser";
 
 import { toNodeHandler } from "better-auth/node";
@@ -14,7 +13,7 @@ const app: Application = express();
 // Express middleware
 app.use(
   cors({
-    origin: envVars.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],

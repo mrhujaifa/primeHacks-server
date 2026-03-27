@@ -5,7 +5,6 @@ import httpStatus from "http-status";
 import { ZodError } from "zod";
 
 import AppError from "../../errors/AppError";
-import { envVars } from "../../../config/env";
 import { handleZodError } from "../../errors/handleZodError";
 import { TErrorResponse, TErrorSources } from "../../types/error.type";
 
@@ -21,7 +20,7 @@ export const globalErrorHandler = (
   let stack: string | undefined = undefined;
   let errorSources: TErrorSources = [];
 
-  if (envVars.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === "development") {
     console.log("Error from Global Error Handler =>", err);
   }
 
@@ -53,7 +52,7 @@ export const globalErrorHandler = (
     ];
   }
 
-  if (envVars.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === "development") {
     stack = err.stack;
   }
 
@@ -64,7 +63,7 @@ export const globalErrorHandler = (
     status: errorStatus,
     errorSources,
     stack,
-    error: envVars.NODE_ENV === "development" ? err : undefined,
+    error: process.env.NODE_ENV === "development" ? err : undefined,
   };
 
   res.status(statusCode).json(errorResponse);
