@@ -1,13 +1,40 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
+import { waitUntil } from "@vercel/functions";
 
-import { UserRole, UserStatus } from "../../prisma/generated/prisma/enums";
 import { prisma } from "./prisma";
 
+// Environment validation (important!)
+if (!process.env.BETTER_AUTH_SECRET) {
+  throw new Error("BETTER_AUTH_SECRET is required");
+}
+
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL is required");
+}
+
 export const auth = betterAuth({
-  baseURL: process.env.BETTER_AUTH_URL,
+  // ✅ Base URL with fallback
+  baseURL:
+    process.env.BETTER_AUTH_URL || process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000",
+
   secret: process.env.BETTER_AUTH_SECRET,
-  trustedOrigins: ["http://localhost:3000"],
+
+  // ✅ Dynamic trusted origins for Vercel
+  trustedOrigins:
+    process.env.VERCEL_ENV === "production"
+      ? [process.env.BETTER_AUTH_URL!]
+      : [
+          "http://localhost:3000",
+          `https://${process.env.VERCEL_URL || ""}`,
+          "*-yourname.vercel.app",
+        ],
+
+  // ✅ Vercel preview deployments support
+  basePath: "/api/auth",
+
   database: prismaAdapter(prisma, {
     provider: "postgresql",
   }),
@@ -16,7 +43,7 @@ export const auth = betterAuth({
     enabled: true,
     requireEmailVerification: true,
     onExistingUserSignUp: async ({ user }) => {
-      console.log("user already exit", user.email);
+      console.log("user already exists", user.email);
     },
   },
 
@@ -25,15 +52,24 @@ export const auth = betterAuth({
       role: {
         type: "string",
         required: false,
-        defaultValue: UserRole.USER,
+        defaultValue: "USER",
         input: false,
       },
       status: {
         type: "string",
         required: true,
-        defaultValue: UserStatus.ACTIVE,
+        defaultValue: "ACTIVE",
         input: false,
       },
     },
+  },
+
+  // ✅ Vercel background tasks (important for performance)
+  advanced: {
+    backgroundTasks: {
+      handler: (promise) => waitUntil(promise),
+    },
+    // Use secure cookies in production
+    useSecureCookies: process.env.NODE_ENV === "production",
   },
 });

@@ -8,7 +8,7 @@ import { Response } from "express";
 const getAccessToken = async (payload: JwtPayload) => {
   const accessToken = jwtUtils.createToken(
     payload,
-    process.env.ACCESS_TOKEN_SECRET,
+    process.env.ACCESS_TOKEN_SECRET as string,
     { expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN } as SignOptions,
   );
 
@@ -19,7 +19,7 @@ const getAccessToken = async (payload: JwtPayload) => {
 const getRefreshToken = (payload: JwtPayload) => {
   const refreshToken = jwtUtils.createToken(
     payload,
-    process.env.REFRESH_TOKEN_SECRET,
+    process.env.REFRESH_TOKEN_SECRET as string,
     {
       expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN,
     } as SignOptions,
