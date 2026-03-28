@@ -4,7 +4,6 @@ import { waitUntil } from "@vercel/functions";
 
 import { prisma } from "./prisma";
 
-// Environment validation (important!)
 if (!process.env.BETTER_AUTH_SECRET) {
   throw new Error("BETTER_AUTH_SECRET is required");
 }
@@ -14,7 +13,6 @@ if (!process.env.DATABASE_URL) {
 }
 
 export const auth = betterAuth({
-  // ✅ Base URL with fallback
   baseURL:
     process.env.BETTER_AUTH_URL || process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`
@@ -22,7 +20,6 @@ export const auth = betterAuth({
 
   secret: process.env.BETTER_AUTH_SECRET,
 
-  // ✅ Dynamic trusted origins for Vercel
   trustedOrigins:
     process.env.VERCEL_ENV === "production"
       ? [process.env.BETTER_AUTH_URL!]
@@ -32,7 +29,6 @@ export const auth = betterAuth({
           "*-yourname.vercel.app",
         ],
 
-  // ✅ Vercel preview deployments support
   basePath: "/api/auth",
 
   database: prismaAdapter(prisma, {
@@ -62,14 +58,5 @@ export const auth = betterAuth({
         input: false,
       },
     },
-  },
-
-  // ✅ Vercel background tasks (important for performance)
-  advanced: {
-    backgroundTasks: {
-      handler: (promise) => waitUntil(promise),
-    },
-    // Use secure cookies in production
-    useSecureCookies: process.env.NODE_ENV === "production",
   },
 });
