@@ -27,7 +27,7 @@ app.post(
 // Express middleware
 app.use(
   cors({
-    origin: originUrl,
+    origin: "https://primehacks.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],

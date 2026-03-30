@@ -4,19 +4,8 @@ import { waitUntil } from "@vercel/functions";
 
 import { prisma } from "./prisma";
 
-if (!process.env.BETTER_AUTH_SECRET) {
-  throw new Error("BETTER_AUTH_SECRET is required");
-}
-
-if (!process.env.DATABASE_URL) {
-  throw new Error("DATABASE_URL is required");
-}
-
 export const auth = betterAuth({
-  baseURL:
-    process.env.BETTER_AUTH_URL || process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000",
+  baseURL: "https://prisma-hacks.onrender.com",
 
   secret: process.env.BETTER_AUTH_SECRET,
 
