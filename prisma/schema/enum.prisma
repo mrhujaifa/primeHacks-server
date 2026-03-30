@@ -35,9 +35,11 @@ enum RewardType {
 }
 
 enum PaymentStatus {
-    PENDING
+    UNPAID
     PAID
     FAILED
+    REFUNDED
+    CANCELLED
 }
 
 enum SubscriptionPlan {
@@ -48,6 +50,7 @@ enum SubscriptionPlan {
 
 enum SubscriptionStatus {
     ACTIVE
-    EXPIRED
+    INACTIVE
     CANCELLED
+    EXPIRED
 }

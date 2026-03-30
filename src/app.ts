@@ -7,8 +7,16 @@ import cookieParser from "cookie-parser";
 
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth";
+import { PaymentController } from "./app/modules/payment/payment.controller";
 
 const app: Application = express();
+
+// stripe middleware
+app.post(
+  "/webhook",
+  express.raw({ type: "application/json" }),
+  PaymentController.stripeWebhook,
+);
 
 // Express middleware
 app.use(

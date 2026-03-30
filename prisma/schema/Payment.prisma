@@ -1,17 +1,20 @@
 model Payment {
-    id            String        @id @default(cuid())
-    userId        String
-    amount        Decimal       @db.Decimal(10, 2)
-    currency      String        @default("BDT")
-    gateway       String
-    transactionId String?       @unique
-    status        PaymentStatus @default(PENDING)
+    id                    String        @id @default(uuid(7))
+    userId                String
+    subscriptionId        String?
+    plan                  String
+    amount                Float
+    transactionId         String        @unique @db.Uuid()
+    stripeEventId         String?       @unique
+    stripeSessionId       String?       @unique
+    stripePaymentIntentId String?       @unique
+    status                PaymentStatus @default(UNPAID)
+    paymentGatewayData    Json?
+    createdAt             DateTime      @default(now())
+    updatedAt             DateTime      @updatedAt
+    subscription          Subscription? @relation(fields: [subscriptionId], references: [id], onDelete: SetNull)
+    user                  User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-
-    @@index([userId])
-    @@index([status])
+    @@index([transactionId])
+    @@map("payments")
 }

@@ -12,7 +12,7 @@ router.post(
 );
 
 router.get(
-  "/me",
+  "/my-submission",
   verifyAuth(UserRole.USER, UserRole.ORGANIZER, UserRole.ADMIN),
   SubmissionControllers.getMySubmissions,
 );

@@ -9,6 +9,8 @@ model User {
     role                UserRole            @default(USER)
     status              UserStatus          @default(ACTIVE)
     isPremium           Boolean             @default(false)
+    premiumPlan         String?
+    premiumExpiresAt    DateTime?
     profile             UserProfile?
     organizedHackathons Hackathon[]         @relation("OrganizerHackathons")
     submissions         Submission[]

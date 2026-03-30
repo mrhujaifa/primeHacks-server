@@ -20,7 +20,8 @@
     "format": "prisma format",
     "seed": "tsx src/scripts/seed.ts",
     "postinstall": "prisma generate",
-    "vercel-build": "pnpm prisma generate && pnpm build"
+    "vercel-build": "pnpm prisma generate && pnpm build",
+    "stripe:webhook": "stripe listen --forward-to localhost:5000/webhook"
   },
   "keywords": [],
   "author": "",
@@ -43,6 +44,7 @@
     "jsonwebtoken": "^9.0.3",
     "pg": "^8.20.0",
     "slugify": "^1.6.8",
+    "stripe": "^21.0.1",
     "zod": "^4.3.6"
   },
   "devDependencies": {
