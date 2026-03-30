@@ -11,6 +11,12 @@ import { PaymentController } from "./app/modules/payment/payment.controller";
 
 const app: Application = express();
 
+const originUrl = process.env.FRONTEND_URL as string;
+
+if (!originUrl) {
+  throw new Error("orgin env not found");
+}
+
 // stripe middleware
 app.post(
   "/webhook",
@@ -21,7 +27,7 @@ app.post(
 // Express middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: originUrl,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
