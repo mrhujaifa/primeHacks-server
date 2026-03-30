@@ -11,7 +11,7 @@ import { PaymentController } from "./app/modules/payment/payment.controller";
 
 const app: Application = express();
 
-const originUrl = "https://primehacks.onrender.com";
+const originUrl = process.env.FRONTEND_URL as string;
 
 if (!originUrl) {
   throw new Error("orgin env not found");

@@ -20,14 +20,7 @@ export const auth = betterAuth({
 
   secret: process.env.BETTER_AUTH_SECRET,
 
-  trustedOrigins:
-    process.env.VERCEL_ENV === "production"
-      ? [process.env.BETTER_AUTH_URL!]
-      : [
-          "http://localhost:3000",
-          `https://${process.env.VERCEL_URL || ""}`,
-          "*-yourname.vercel.app",
-        ],
+  trustedOrigins: ["https://primehacks.onrender.com"],
 
   basePath: "/api/auth",
 
