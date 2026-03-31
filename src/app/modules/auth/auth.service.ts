@@ -135,6 +135,9 @@ const getMe = async (user: IRequestUser) => {
       image: true,
       role: true,
       status: true,
+      isPremium: true,
+      premiumExpiresAt: true,
+      premiumPlan: true,
       emailVerified: true,
       createdAt: true,
       updatedAt: true,
@@ -148,8 +151,29 @@ const getMe = async (user: IRequestUser) => {
   return data;
 };
 
+const logout = async (request?: Request) => {
+  try {
+    if (request) {
+      await auth.api.signOut({
+        headers: request.headers,
+      });
+    }
+
+    return {
+      success: true,
+      message: "User logged out successfully",
+    };
+  } catch (error: any) {
+    throw new AppError(
+      status.INTERNAL_SERVER_ERROR,
+      error?.message || "Logout failed",
+    );
+  }
+};
+
 export const AuthServices = {
   registerUser,
   loginUser,
   getMe,
+  logout,
 };

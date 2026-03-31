@@ -57,8 +57,37 @@ const getMe = catchAsync(async (req, res) => {
   });
 });
 
+const logoutUser = catchAsync(async (req, res) => {
+  res.clearCookie("accessToken", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+  });
+
+  res.clearCookie("refreshToken", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+  });
+
+  res.clearCookie("better-auth.session_token", {
+    httpOnly: true,
+    sameSite: "lax",
+  });
+
+  const result = await AuthServices.logout();
+
+  sendResponse(res, {
+    httpStatusCode: 200,
+    success: true,
+    message: result.message,
+    data: null,
+  });
+});
+
 export const AuthController = {
   registerUser,
   loginUser,
   getMe,
+  logoutUser,
 };

@@ -13,4 +13,6 @@ router.get(
   AuthController.getMe,
 );
 
+router.get("/logout", AuthController.logoutUser);
+
 export const AuthRoutes = router;
