@@ -10,14 +10,12 @@ router.get("/users", verifyAuth(UserRole.ADMIN), AdminControllers.getAllUsers);
 router.patch(
   "/users/:id/role",
   verifyAuth(UserRole.ADMIN),
-  //   validateRequest(updateUserRoleZodSchema),
   AdminControllers.updateUserRole,
 );
 
 router.patch(
   "/users/:id/status",
   verifyAuth(UserRole.ADMIN),
-  //   validateRequest(updateUserStatusZodSchema),
   AdminControllers.updateUserStatus,
 );
 

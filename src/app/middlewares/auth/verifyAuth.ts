@@ -97,6 +97,7 @@ export const verifyAuth =
         );
       }
 
+      //verifyToken handle
       const verifiedToken = jwtUtils.verifyToken(
         accessToken,
         process.env.ACCESS_TOKEN_SECRET as string,
