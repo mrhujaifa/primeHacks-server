@@ -27,7 +27,7 @@ router.get("/category", HackathonControllers.getAllHackathonCategories);
 
 router.get(
   "/:id",
-  verifyAuth(UserRole.ADMIN, UserRole.ORGANIZER),
+  verifyAuth(UserRole.ADMIN, UserRole.USER, UserRole.ORGANIZER),
   HackathonControllers.getHackathonById,
 );
 
