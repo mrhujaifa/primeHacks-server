@@ -1,5 +1,7 @@
+import status from "http-status";
 import { UserRole } from "../../../../prisma/generated/prisma/enums";
 import { prisma } from "../../../lib/prisma";
+import AppError from "../../errors/AppError";
 import { IRequestUser } from "../../types/user";
 
 const getAllUsers = async () => {
@@ -8,96 +10,78 @@ const getAllUsers = async () => {
   return alluser;
 };
 
-// const changeUserRole = async (user: IRequestUser) => {
-//   const users = await prisma.user.findUnique({
-//     where: { id: user.userId },
-//   });
+const updateUserRole = async (
+  targetUserId: string,
+  payload: { role: "USER" | "ORGANIZER" | "ADMIN" },
+  user: IRequestUser,
+) => {
+  const existingUser = await prisma.user.findUnique({
+    where: { id: targetUserId },
+  });
 
-//   if (!user) {
-//     throw new Error("User not found");
-//   }
+  if (!existingUser) {
+    throw new AppError(status.NOT_FOUND, "User not found");
+  }
 
-//   const result = await prisma.user.update({
-//     where: { id: user.userId },
-//     data: { role: user.role },
-//   });
+  if (existingUser.id === user.userId) {
+    throw new AppError(status.BAD_REQUEST, "You cannot change your own role");
+  }
 
-//   return result;
-// };
+  const updatedUser = await prisma.user.update({
+    where: { id: targetUserId },
+    data: {
+      role: payload.role,
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      role: true,
+      status: true,
+      updatedAt: true,
+    },
+  });
 
-// const changeUserStatus = async (userId: string, status: UserStatus) => {
-//   const user = await prisma.user.findUnique({
-//     where: { id: userId },
-//   });
+  return updatedUser;
+};
 
-//   if (!user) {
-//     throw new Error("User not found");
-//   }
+const updateUserStatus = async (
+  targetUserId: string,
+  payload: { status: "ACTIVE" | "SUSPENDED" | "BLOCK" },
+  user: IRequestUser,
+) => {
+  const existingUser = await prisma.user.findUnique({
+    where: { id: targetUserId },
+  });
 
-//   const result = await prisma.user.update({
-//     where: { id: userId },
-//     data: { status },
-//   });
+  if (!existingUser) {
+    throw new AppError(status.NOT_FOUND, "User not found");
+  }
 
-//   return result;
-// };
+  if (existingUser.id === user.userId) {
+    throw new AppError(status.BAD_REQUEST, "You cannot change your own status");
+  }
 
-// const approveSubmission = async (
-//   submissionId: string,
-//   reviewerId: string,
-//   feedback?: string,
-// ) => {
-//   const submission = await prisma.submission.findUnique({
-//     where: { id: submissionId },
-//   });
+  const updatedUser = await prisma.user.update({
+    where: { id: targetUserId },
+    data: {
+      status: payload.status,
+    },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      role: true,
+      status: true,
+      updatedAt: true,
+    },
+  });
 
-//   if (!submission) {
-//     throw new Error("Submission not found");
-//   }
-
-//   const result = await prisma.submission.update({
-//     where: { id: submissionId },
-//     data: {
-//       status: SubmissionStatus.APPROVED,
-//       feedback,
-//       reviewedAt: new Date(),
-//       reviewedById: reviewerId,
-//     },
-//   });
-
-//   return result;
-// };
-
-// const rejectSubmission = async (
-//   submissionId: string,
-//   reviewerId: string,
-//   feedback?: string,
-// ) => {
-//   const submission = await prisma.submission.findUnique({
-//     where: { id: submissionId },
-//   });
-
-//   if (!submission) {
-//     throw new Error("Submission not found");
-//   }
-
-//   const result = await prisma.submission.update({
-//     where: { id: submissionId },
-//     data: {
-//       status: SubmissionStatus.REJECTED,
-//       feedback,
-//       reviewedAt: new Date(),
-//       reviewedById: reviewerId,
-//     },
-//   });
-
-//   return result;
-// };
+  return updatedUser;
+};
 
 export const AdminServices = {
   getAllUsers,
-  //   changeUserRole,
-  //   changeUserStatus,
-  //   approveSubmission,
-  //   rejectSubmission,
+  updateUserStatus,
+  updateUserRole,
 };

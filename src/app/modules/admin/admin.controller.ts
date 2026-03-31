@@ -13,6 +13,44 @@ const getAllUsers = catchAsync(async (req, res) => {
   });
 });
 
+const updateUserRole = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const user = (req as any).user;
+
+  const result = await AdminServices.updateUserRole(
+    id as string,
+    req.body,
+    user,
+  );
+
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    success: true,
+    message: "User role updated successfully",
+    data: result,
+  });
+});
+
+const updateUserStatus = catchAsync(async (req, res) => {
+  const { id } = req.params;
+  const user = (req as any).user;
+
+  const result = await AdminServices.updateUserStatus(
+    id as string,
+    req.body,
+    user,
+  );
+
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    success: true,
+    message: "User status updated successfully",
+    data: result,
+  });
+});
+
 export const AdminControllers = {
   getAllUsers,
+  updateUserRole,
+  updateUserStatus,
 };

@@ -7,22 +7,18 @@ const router = express.Router();
 
 router.get("/users", verifyAuth(UserRole.ADMIN), AdminControllers.getAllUsers);
 
-// router.patch(
-//   "/users/:id",
-//   verifyAuth(UserRole.ADMIN),
-//   AdminControllers.updateUser,
-// );
+router.patch(
+  "/users/:id/role",
+  verifyAuth(UserRole.ADMIN),
+  //   validateRequest(updateUserRoleZodSchema),
+  AdminControllers.updateUserRole,
+);
 
-// router.get(
-//   "/submissions",
-//   verifyAuth(UserRole.ADMIN),
-//   AdminControllers.getAllSubmissions,
-// );
-
-// router.patch(
-//   "/submissions/:id/status",
-//   verifyAuth(UserRole.ADMIN),
-//   AdminControllers.updateSubmissionStatus,
-// );
+router.patch(
+  "/users/:id/status",
+  verifyAuth(UserRole.ADMIN),
+  //   validateRequest(updateUserStatusZodSchema),
+  AdminControllers.updateUserStatus,
+);
 
 export const AdminRoutes = router;
