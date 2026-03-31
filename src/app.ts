@@ -11,15 +11,15 @@ import { PaymentController } from "./app/modules/payment/payment.controller";
 
 // Validate required environment variables
 const requiredEnvVars = [
-  'DATABASE_URL',
-  'BETTER_AUTH_SECRET',
-  'ACCESS_TOKEN_SECRET',
-  'REFRESH_TOKEN_SECRET',
-  'STRIPE_SECRET',
-  'STRIPE_WEBHOOK_SECRET',
-  'NEXT_PUBLIC_CLIENT_URL',
-  'FRONTEND_URL',
-  'BETTER_AUTH_URL'
+  "DATABASE_URL",
+  "BETTER_AUTH_SECRET",
+  "ACCESS_TOKEN_SECRET",
+  "REFRESH_TOKEN_SECRET",
+  "STRIPE_SECRET",
+  "STRIPE_WEBHOOK_SECRET",
+  "NEXT_PUBLIC_CLIENT_URL",
+  "FRONTEND_URL",
+  "BETTER_AUTH_URL",
 ];
 
 for (const envVar of requiredEnvVars) {
@@ -42,7 +42,7 @@ app.post(
 // Express middleware
 app.use(
   cors({
-    origin: originUrl,
+    origin: [originUrl, "https://primehacks.onrender.com"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
