@@ -11,7 +11,11 @@ router.post(
   PaymentController.createCheckoutSession,
 );
 
-router.get("/verify-session/:sessionId", PaymentController.verifySession);
+router.get(
+  "/verify-session/:sessionId",
+  verifyAuth(UserRole.USER, UserRole.ADMIN, UserRole.ORGANIZER),
+  PaymentController.verifySession,
+);
 
 // router.post(
 //   "/stripe/webhook",
