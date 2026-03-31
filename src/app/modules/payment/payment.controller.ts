@@ -3,8 +3,13 @@ import { PaymentService } from "./payment.service";
 import { stripe } from "../../../config/stripe.config";
 import { IRequestUser } from "../../types/user";
 
-const createCheckoutSession = async (req: Request, res: Response) => {
-  try {
+import AppError from "../../errors/AppError";
+import status from "http-status";
+import { catchAsync } from "../../shared/catchAsync";
+import { sendResponse } from "../../shared/sendResponse";
+
+const createCheckoutSession = catchAsync(
+  async (req: Request, res: Response) => {
     const user = req.user;
     const { plan } = req.body;
 
@@ -12,10 +17,7 @@ const createCheckoutSession = async (req: Request, res: Response) => {
     console.log(user);
 
     if (!plan || !["MONTHLY", "YEARLY"].includes(plan)) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid plan",
-      });
+      throw new AppError(status.BAD_REQUEST, "Invalid plan");
     }
 
     const result = await PaymentService.createCheckoutSession(
@@ -23,49 +25,37 @@ const createCheckoutSession = async (req: Request, res: Response) => {
       plan as "MONTHLY" | "YEARLY",
     );
 
-    return res.status(200).json({
+    sendResponse(res, {
+      httpStatusCode: status.OK,
       success: true,
       message: "Checkout session created successfully",
       data: result,
     });
-  } catch (error: any) {
-    return res.status(400).json({
-      success: false,
-      message: error.message || "Failed to create checkout session",
-    });
+  },
+);
+
+const stripeWebhook = catchAsync(async (req: Request, res: Response) => {
+  const signature = req.headers["stripe-signature"] as string;
+  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+
+  if (!signature || !webhookSecret) {
+    throw new AppError(status.BAD_REQUEST, "Missing webhook configuration");
   }
-};
 
-const stripeWebhook = async (req: Request, res: Response) => {
-  try {
-    const signature = req.headers["stripe-signature"];
+  const event = stripe.webhooks.constructEvent(
+    req.body,
+    signature,
+    webhookSecret,
+  );
+  const result = await PaymentService.handleStripeWebhookEvent(event);
 
-    if (!signature) {
-      return res.status(400).json({
-        success: false,
-        message: "Missing stripe signature",
-      });
-    }
-
-    const event = stripe.webhooks.constructEvent(
-      req.body,
-      signature,
-      process.env.STRIPE_WEBHOOK_SECRET as string,
-    );
-
-    const result = await PaymentService.handleStripeWebhookEvent(event);
-
-    return res.status(200).json({
-      success: true,
-      message: result.message,
-    });
-  } catch (error: any) {
-    return res.status(400).json({
-      success: false,
-      message: error.message || "Webhook failed",
-    });
-  }
-};
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    success: true,
+    message: result.message,
+    data: result,
+  });
+});
 
 export const PaymentController = {
   createCheckoutSession,

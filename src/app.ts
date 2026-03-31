@@ -9,13 +9,28 @@ import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth";
 import { PaymentController } from "./app/modules/payment/payment.controller";
 
+// Validate required environment variables
+const requiredEnvVars = [
+  'DATABASE_URL',
+  'BETTER_AUTH_SECRET',
+  'ACCESS_TOKEN_SECRET',
+  'REFRESH_TOKEN_SECRET',
+  'STRIPE_SECRET',
+  'STRIPE_WEBHOOK_SECRET',
+  'NEXT_PUBLIC_CLIENT_URL',
+  'FRONTEND_URL',
+  'BETTER_AUTH_URL'
+];
+
+for (const envVar of requiredEnvVars) {
+  if (!process.env[envVar]) {
+    throw new Error(`Environment variable ${envVar} is required but not set`);
+  }
+}
+
 const app: Application = express();
 
 const originUrl = process.env.FRONTEND_URL as string;
-
-if (!originUrl) {
-  throw new Error("orgin env not found");
-}
 
 // stripe middleware
 app.post(
@@ -27,7 +42,7 @@ app.post(
 // Express middleware
 app.use(
   cors({
-    origin: "https://primehacks.onrender.com",
+    origin: originUrl,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],

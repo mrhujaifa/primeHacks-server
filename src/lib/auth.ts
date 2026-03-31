@@ -4,14 +4,21 @@ import { waitUntil } from "@vercel/functions";
 
 import { prisma } from "./prisma";
 
+const trustedOrigins = process.env.FRONTEND_URL as string;
+const baseUrl = process.env.BETTER_AUTH_URL as string;
+
+if (!trustedOrigins || !baseUrl) {
+  throw new Error(
+    "BETTER_AUTH_URL and FRONTEND_URL environment variables are required",
+  );
+}
+
 export const auth = betterAuth({
-  baseURL: "https://prisma-hacks.onrender.com",
+  baseURL: baseUrl,
 
   secret: process.env.BETTER_AUTH_SECRET,
 
-  trustedOrigins: ["https://primehacks.onrender.com"],
-
-  basePath: "/api/auth",
+  trustedOrigins: [trustedOrigins],
 
   database: prismaAdapter(prisma, {
     provider: "postgresql",

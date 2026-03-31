@@ -5,6 +5,8 @@ import { prisma } from "../../../lib/prisma";
 import { getPlanDetails } from "../../utils/payment.utils";
 import { IRequestUser } from "../../types/user";
 import crypto from "node:crypto";
+import AppError from "../../errors/AppError";
+import status from "http-status";
 
 const createCheckoutSession = async (
   users: IRequestUser,
@@ -17,10 +19,16 @@ const createCheckoutSession = async (
   });
 
   if (!user) {
-    throw new Error("User not found");
+    throw new AppError(status.NOT_FOUND, "User not found");
   }
 
   const { amount, priceId } = getPlanDetails(plan);
+
+  const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
+  if (!clientUrl) {
+    throw new AppError(status.INTERNAL_SERVER_ERROR, 
+      "NEXT_PUBLIC_CLIENT_URL is not configured");
+  }
 
   const payment = await prisma.payment.create({
     data: {
@@ -42,8 +50,8 @@ const createCheckoutSession = async (
         quantity: 1,
       },
     ],
-    success_url: `${process.env.NEXT_PUBLIC_CLIENT_URL}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${process.env.NEXT_PUBLIC_CLIENT_URL}/pricing`,
+    success_url: `${clientUrl}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${clientUrl}/pricing`,
     metadata: {
       userId,
       paymentId: payment.id,

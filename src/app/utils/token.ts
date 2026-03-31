@@ -6,20 +6,27 @@ import { Response } from "express";
 
 //* Get access token
 const getAccessToken = async (payload: JwtPayload) => {
-  const accessToken = jwtUtils.createToken(
-    payload,
-    process.env.ACCESS_TOKEN_SECRET as string,
-    { expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN } as SignOptions,
+  const secret = process.env.ACCESS_TOKEN_SECRET;
+  if (!secret) {
+    throw new Error("ACCESS_TOKEN_SECRET is not configured");
+  }
+  
+  const accessToken = jwtUtils.createToken(payload, secret, 
+    { expiresIn: process.env.ACCESS_TOKEN_EXPIRES_IN } as SignOptions
   );
-
   return accessToken;
 };
 
 //* Get refresh token
 const getRefreshToken = (payload: JwtPayload) => {
+  const secret = process.env.REFRESH_TOKEN_SECRET;
+  if (!secret) {
+    throw new Error("REFRESH_TOKEN_SECRET is not configured");
+  }
+  
   const refreshToken = jwtUtils.createToken(
     payload,
-    process.env.REFRESH_TOKEN_SECRET as string,
+    secret,
     {
       expiresIn: process.env.REFRESH_TOKEN_EXPIRES_IN,
     } as SignOptions,
