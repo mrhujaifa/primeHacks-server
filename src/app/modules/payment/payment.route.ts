@@ -17,10 +17,4 @@ router.get(
   PaymentController.verifySession,
 );
 
-// router.post(
-//   "/stripe/webhook",
-//   express.raw({ type: "application/json" }),
-//   PaymentController.stripeWebhook,
-// );
-
 export const PaymentRoutes = router;
