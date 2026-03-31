@@ -20,7 +20,7 @@ router.post(
 router.get("/", HackathonControllers.getAllHackathons);
 router.get(
   "/my-hackathons",
-  verifyAuth(UserRole.ORGANIZER, UserRole.ADMIN),
+  verifyAuth(UserRole.ORGANIZER, UserRole.USER, UserRole.ADMIN),
   HackathonControllers.getOwnHackathons,
 );
 router.get("/category", HackathonControllers.getAllHackathonCategories);

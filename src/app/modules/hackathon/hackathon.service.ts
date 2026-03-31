@@ -281,15 +281,15 @@ const getHackathonById = async (user: IRequestUser, hackathonId: string) => {
     throw new AppError(status.NOT_FOUND, "Hackathon not found");
   }
 
-  const isOwner = existingHackathon.organizerId === user.userId;
-  const isSuperAdmin = user.role === "ADMIN";
+  // const isOwner = existingHackathon.organizerId === user.userId;
+  // const isSuperAdmin = user.role === "ADMIN";
 
-  if (!isOwner && !isSuperAdmin) {
-    throw new AppError(
-      status.FORBIDDEN,
-      "You are not authorized to access this hackathon",
-    );
-  }
+  // if (!isOwner && !isSuperAdmin) {
+  //   throw new AppError(
+  //     status.FORBIDDEN,
+  //     "You are not authorized to access this hackathon",
+  //   );
+  // }
 
   return existingHackathon;
 };
