@@ -3,6 +3,7 @@ import { catchAsync } from "../../shared/catchAsync";
 import { sendResponse } from "../../shared/sendResponse";
 import { AdminServices } from "./admin.service";
 
+//* Get all user controller
 const getAllUsers = catchAsync(async (req, res) => {
   const result = await AdminServices.getAllUsers();
   sendResponse(res, {
@@ -13,6 +14,7 @@ const getAllUsers = catchAsync(async (req, res) => {
   });
 });
 
+//* user Update Role handle
 const updateUserRole = catchAsync(async (req, res) => {
   const { id } = req.params;
   const user = (req as any).user;
@@ -31,6 +33,7 @@ const updateUserRole = catchAsync(async (req, res) => {
   });
 });
 
+//* update status handle
 const updateUserStatus = catchAsync(async (req, res) => {
   const { id } = req.params;
   const user = (req as any).user;
