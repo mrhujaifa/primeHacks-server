@@ -26,8 +26,10 @@ const createCheckoutSession = async (
 
   const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
   if (!clientUrl) {
-    throw new AppError(status.INTERNAL_SERVER_ERROR, 
-      "NEXT_PUBLIC_CLIENT_URL is not configured");
+    throw new AppError(
+      status.INTERNAL_SERVER_ERROR,
+      "NEXT_PUBLIC_CLIENT_URL is not configured",
+    );
   }
 
   const payment = await prisma.payment.create({
@@ -174,9 +176,49 @@ const handleStripeWebhookEvent = async (event: Stripe.Event) => {
   }
 };
 
+const verifySession = async (sessionId: string) => {
+  const session = await stripe.checkout.sessions.retrieve(sessionId);
+
+  if (session.payment_status === "paid") {
+    const payment = await prisma.payment.findFirst({
+      where: { stripeSessionId: sessionId },
+    });
+
+    if (payment && payment.status !== PaymentStatus.PAID) {
+      const plan = payment.plan;
+      const { expiresAt } = getPlanDetails(plan);
+
+      await prisma.$transaction(async (tx) => {
+        await tx.payment.update({
+          where: { id: payment.id },
+          data: {
+            status: PaymentStatus.PAID,
+            stripePaymentIntentId:
+              typeof session.payment_intent === "string"
+                ? session.payment_intent
+                : null,
+          },
+        });
+
+        await tx.user.update({
+          where: { id: payment.userId },
+          data: {
+            isPremium: true,
+            premiumPlan: plan,
+            premiumExpiresAt: expiresAt,
+          },
+        });
+      });
+    }
+  }
+
+  return { status: session.payment_status };
+};
+
 export const PaymentService = {
   createCheckoutSession,
   handleStripeWebhookEvent,
+  verifySession,
 };
 
 // /* eslint-disable @typescript-eslint/no-explicit-any */

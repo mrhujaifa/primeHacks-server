@@ -11,6 +11,8 @@ router.post(
   PaymentController.createCheckoutSession,
 );
 
+router.get("/verify-session/:sessionId", PaymentController.verifySession);
+
 // router.post(
 //   "/stripe/webhook",
 //   express.raw({ type: "application/json" }),

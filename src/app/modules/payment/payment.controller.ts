@@ -57,9 +57,23 @@ const stripeWebhook = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+const verifySession = catchAsync(async (req: Request, res: Response) => {
+  const { sessionId } = req.params;
+
+  const result = await PaymentService.verifySession(sessionId as string);
+
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    success: true,
+    message: "Session verified successfully",
+    data: result,
+  });
+});
+
 export const PaymentController = {
   createCheckoutSession,
   stripeWebhook,
+  verifySession,
 };
 
 // import { Request, Response } from "express";
