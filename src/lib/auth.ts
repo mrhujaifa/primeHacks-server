@@ -3,6 +3,8 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 import { waitUntil } from "@vercel/functions";
 
 import { prisma } from "./prisma";
+import { emailOTP } from "better-auth/plugins";
+import { sendOtpEmail } from "../app/utils/sendEmail";
 
 const trustedOrigins = process.env.FRONTEND_URL as string;
 const baseUrl = process.env.BETTER_AUTH_URL as string;
@@ -31,6 +33,24 @@ export const auth = betterAuth({
       console.log("user already exists", user.email);
     },
   },
+  plugins: [
+    emailOTP({
+      overrideDefaultEmailVerification: true,
+
+      otpLength: 6,
+
+      // 10 minutes
+      expiresIn: 60 * 10,
+
+      async sendVerificationOTP({ email, otp, type }) {
+        await sendOtpEmail({
+          to: email,
+          otp,
+          type,
+        });
+      },
+    }),
+  ],
 
   user: {
     additionalFields: {
