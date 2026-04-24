@@ -14,5 +14,6 @@ router.get(
 );
 
 router.get("/logout", AuthController.logoutUser);
+router.post("/verify-email-otp", AuthController.signUpOtpVerification);
 
 export const AuthRoutes = router;

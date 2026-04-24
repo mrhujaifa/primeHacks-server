@@ -85,9 +85,21 @@ const logoutUser = catchAsync(async (req, res) => {
   });
 });
 
+const signUpOtpVerification = catchAsync(async (req, res) => {
+  const { email, otp } = req.body;
+  const result = await AuthServices.SignUpOtpVerification(email, otp);
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    success: true,
+    message: result.message,
+    data: result.user,
+  });
+});
+
 export const AuthController = {
   registerUser,
   loginUser,
   getMe,
   logoutUser,
+  signUpOtpVerification,
 };

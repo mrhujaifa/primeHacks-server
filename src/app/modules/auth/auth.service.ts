@@ -171,9 +171,36 @@ const logout = async (request?: Request) => {
   }
 };
 
+const SignUpOtpVerification = async (email: string, otp: string) => {
+  try {
+    const data = await auth.api.verifyEmailOTP({
+      body: {
+        email,
+        otp,
+      },
+    });
+
+    if (!data?.user) {
+      throw new AppError(status.BAD_REQUEST, "OTP verification failed");
+    }
+    return {
+      success: true,
+      message: "OTP verified successfully",
+      user: data.user,
+    };
+  } catch (error: any) {
+    if (error instanceof AppError) throw error;
+    throw new AppError(
+      status.INTERNAL_SERVER_ERROR,
+      error?.message || "OTP verification failed",
+    );
+  }
+};
+
 export const AuthServices = {
   registerUser,
   loginUser,
   getMe,
   logout,
+  SignUpOtpVerification,
 };
