@@ -1,0 +1,39 @@
+enum OrganizerApplicationStatus {
+    NONE
+    PENDING
+    APPROVED
+    REJECTED
+}
+
+enum ExpectedHackathonType {
+    ONLINE
+    OFFLINE
+    HYBRID
+    COLLEGE_COMMUNITY
+    STARTUP_INDUSTRY
+    OTHER
+}
+
+model OrganizerApplication {
+    id     String @id @default(cuid())
+    userId String
+
+    organizationName      String
+    websiteUrl            String?
+    contactEmail          String
+    previousExperience    String?
+    reason                String
+    expectedHackathonType String?
+    agreeToGuidelines     Boolean @default(false)
+
+    rejectionReason String?
+    reviewedAt      DateTime?
+
+    user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+    @@index([userId])
+    @@map("organizer_applications")
+}

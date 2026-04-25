@@ -63,7 +63,8 @@ export const ModelName = {
   HackathonBookmark: 'HackathonBookmark',
   Payment: 'Payment',
   Submission: 'Submission',
-  Subscription: 'Subscription'
+  Subscription: 'Subscription',
+  OrganizerApplication: 'OrganizerApplication'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -93,6 +94,7 @@ export const UserScalarFieldEnum = {
   isPremium: 'isPremium',
   premiumPlan: 'premiumPlan',
   premiumExpiresAt: 'premiumExpiresAt',
+  organizerApplicationStatus: 'organizerApplicationStatus',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -296,6 +298,25 @@ export const SubscriptionScalarFieldEnum = {
 } as const
 
 export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
+
+
+export const OrganizerApplicationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  organizationName: 'organizationName',
+  websiteUrl: 'websiteUrl',
+  contactEmail: 'contactEmail',
+  previousExperience: 'previousExperience',
+  reason: 'reason',
+  expectedHackathonType: 'expectedHackathonType',
+  agreeToGuidelines: 'agreeToGuidelines',
+  rejectionReason: 'rejectionReason',
+  reviewedAt: 'reviewedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrganizerApplicationScalarFieldEnum = (typeof OrganizerApplicationScalarFieldEnum)[keyof typeof OrganizerApplicationScalarFieldEnum]
 
 
 export const SortOrder = {

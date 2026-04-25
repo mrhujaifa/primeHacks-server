@@ -106,3 +106,8 @@ export type Submission = Prisma.SubmissionModel
  * 
  */
 export type Subscription = Prisma.SubscriptionModel
+/**
+ * Model OrganizerApplication
+ * 
+ */
+export type OrganizerApplication = Prisma.OrganizerApplicationModel

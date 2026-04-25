@@ -35,6 +35,7 @@ export type UserMinAggregateOutputType = {
   isPremium: boolean | null
   premiumPlan: string | null
   premiumExpiresAt: Date | null
+  organizerApplicationStatus: $Enums.OrganizerApplicationStatus | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -50,6 +51,7 @@ export type UserMaxAggregateOutputType = {
   isPremium: boolean | null
   premiumPlan: string | null
   premiumExpiresAt: Date | null
+  organizerApplicationStatus: $Enums.OrganizerApplicationStatus | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -65,6 +67,7 @@ export type UserCountAggregateOutputType = {
   isPremium: number
   premiumPlan: number
   premiumExpiresAt: number
+  organizerApplicationStatus: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -82,6 +85,7 @@ export type UserMinAggregateInputType = {
   isPremium?: true
   premiumPlan?: true
   premiumExpiresAt?: true
+  organizerApplicationStatus?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -97,6 +101,7 @@ export type UserMaxAggregateInputType = {
   isPremium?: true
   premiumPlan?: true
   premiumExpiresAt?: true
+  organizerApplicationStatus?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -112,6 +117,7 @@ export type UserCountAggregateInputType = {
   isPremium?: true
   premiumPlan?: true
   premiumExpiresAt?: true
+  organizerApplicationStatus?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -200,6 +206,7 @@ export type UserGroupByOutputType = {
   isPremium: boolean
   premiumPlan: string | null
   premiumExpiresAt: Date | null
+  organizerApplicationStatus: $Enums.OrganizerApplicationStatus
   createdAt: Date
   updatedAt: Date
   _count: UserCountAggregateOutputType | null
@@ -236,6 +243,7 @@ export type UserWhereInput = {
   isPremium?: Prisma.BoolFilter<"User"> | boolean
   premiumPlan?: Prisma.StringNullableFilter<"User"> | string | null
   premiumExpiresAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFilter<"User"> | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   sessions?: Prisma.SessionListRelationFilter
@@ -246,6 +254,7 @@ export type UserWhereInput = {
   bookmarks?: Prisma.HackathonBookmarkListRelationFilter
   payments?: Prisma.PaymentListRelationFilter
   subscriptions?: Prisma.SubscriptionListRelationFilter
+  organizerApplications?: Prisma.OrganizerApplicationListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -259,6 +268,7 @@ export type UserOrderByWithRelationInput = {
   isPremium?: Prisma.SortOrder
   premiumPlan?: Prisma.SortOrderInput | Prisma.SortOrder
   premiumExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  organizerApplicationStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   sessions?: Prisma.SessionOrderByRelationAggregateInput
@@ -269,6 +279,7 @@ export type UserOrderByWithRelationInput = {
   bookmarks?: Prisma.HackathonBookmarkOrderByRelationAggregateInput
   payments?: Prisma.PaymentOrderByRelationAggregateInput
   subscriptions?: Prisma.SubscriptionOrderByRelationAggregateInput
+  organizerApplications?: Prisma.OrganizerApplicationOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -285,6 +296,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   isPremium?: Prisma.BoolFilter<"User"> | boolean
   premiumPlan?: Prisma.StringNullableFilter<"User"> | string | null
   premiumExpiresAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFilter<"User"> | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
   sessions?: Prisma.SessionListRelationFilter
@@ -295,6 +307,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   bookmarks?: Prisma.HackathonBookmarkListRelationFilter
   payments?: Prisma.PaymentListRelationFilter
   subscriptions?: Prisma.SubscriptionListRelationFilter
+  organizerApplications?: Prisma.OrganizerApplicationListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -308,6 +321,7 @@ export type UserOrderByWithAggregationInput = {
   isPremium?: Prisma.SortOrder
   premiumPlan?: Prisma.SortOrderInput | Prisma.SortOrder
   premiumExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  organizerApplicationStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
@@ -329,6 +343,7 @@ export type UserScalarWhereWithAggregatesInput = {
   isPremium?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   premiumPlan?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   premiumExpiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusWithAggregatesFilter<"User"> | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
@@ -344,6 +359,7 @@ export type UserCreateInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -354,6 +370,7 @@ export type UserCreateInput = {
   bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -367,6 +384,7 @@ export type UserUncheckedCreateInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -377,6 +395,7 @@ export type UserUncheckedCreateInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -390,6 +409,7 @@ export type UserUpdateInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -400,6 +420,7 @@ export type UserUpdateInput = {
   bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -413,6 +434,7 @@ export type UserUncheckedUpdateInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -423,6 +445,7 @@ export type UserUncheckedUpdateInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -436,6 +459,7 @@ export type UserCreateManyInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -451,6 +475,7 @@ export type UserUpdateManyMutationInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -466,6 +491,7 @@ export type UserUncheckedUpdateManyInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -481,6 +507,7 @@ export type UserCountOrderByAggregateInput = {
   isPremium?: Prisma.SortOrder
   premiumPlan?: Prisma.SortOrder
   premiumExpiresAt?: Prisma.SortOrder
+  organizerApplicationStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -496,6 +523,7 @@ export type UserMaxOrderByAggregateInput = {
   isPremium?: Prisma.SortOrder
   premiumPlan?: Prisma.SortOrder
   premiumExpiresAt?: Prisma.SortOrder
+  organizerApplicationStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -511,6 +539,7 @@ export type UserMinOrderByAggregateInput = {
   isPremium?: Prisma.SortOrder
   premiumPlan?: Prisma.SortOrder
   premiumExpiresAt?: Prisma.SortOrder
+  organizerApplicationStatus?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -542,6 +571,10 @@ export type EnumUserStatusFieldUpdateOperationsInput = {
 
 export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
+}
+
+export type EnumOrganizerApplicationStatusFieldUpdateOperationsInput = {
+  set?: $Enums.OrganizerApplicationStatus
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -660,6 +693,20 @@ export type UserUpdateOneRequiredWithoutSubscriptionsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSubscriptionsInput, Prisma.UserUpdateWithoutSubscriptionsInput>, Prisma.UserUncheckedUpdateWithoutSubscriptionsInput>
 }
 
+export type UserCreateNestedOneWithoutOrganizerApplicationsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutOrganizerApplicationsInput, Prisma.UserUncheckedCreateWithoutOrganizerApplicationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOrganizerApplicationsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneRequiredWithoutOrganizerApplicationsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutOrganizerApplicationsInput, Prisma.UserUncheckedCreateWithoutOrganizerApplicationsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutOrganizerApplicationsInput
+  upsert?: Prisma.UserUpsertWithoutOrganizerApplicationsInput
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutOrganizerApplicationsInput, Prisma.UserUpdateWithoutOrganizerApplicationsInput>, Prisma.UserUncheckedUpdateWithoutOrganizerApplicationsInput>
+}
+
 export type UserCreateWithoutSessionsInput = {
   id: string
   name: string
@@ -671,6 +718,7 @@ export type UserCreateWithoutSessionsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
@@ -680,6 +728,7 @@ export type UserCreateWithoutSessionsInput = {
   bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSessionsInput = {
@@ -693,6 +742,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
@@ -702,6 +752,7 @@ export type UserUncheckedCreateWithoutSessionsInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSessionsInput = {
@@ -731,6 +782,7 @@ export type UserUpdateWithoutSessionsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
@@ -740,6 +792,7 @@ export type UserUpdateWithoutSessionsInput = {
   bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSessionsInput = {
@@ -753,6 +806,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
@@ -762,6 +816,7 @@ export type UserUncheckedUpdateWithoutSessionsInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutAccountsInput = {
@@ -775,6 +830,7 @@ export type UserCreateWithoutAccountsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -784,6 +840,7 @@ export type UserCreateWithoutAccountsInput = {
   bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutAccountsInput = {
@@ -797,6 +854,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -806,6 +864,7 @@ export type UserUncheckedCreateWithoutAccountsInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutAccountsInput = {
@@ -835,6 +894,7 @@ export type UserUpdateWithoutAccountsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -844,6 +904,7 @@ export type UserUpdateWithoutAccountsInput = {
   bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutAccountsInput = {
@@ -857,6 +918,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -866,6 +928,7 @@ export type UserUncheckedUpdateWithoutAccountsInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutProfileInput = {
@@ -879,6 +942,7 @@ export type UserCreateWithoutProfileInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -888,6 +952,7 @@ export type UserCreateWithoutProfileInput = {
   bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutProfileInput = {
@@ -901,6 +966,7 @@ export type UserUncheckedCreateWithoutProfileInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -910,6 +976,7 @@ export type UserUncheckedCreateWithoutProfileInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutProfileInput = {
@@ -939,6 +1006,7 @@ export type UserUpdateWithoutProfileInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -948,6 +1016,7 @@ export type UserUpdateWithoutProfileInput = {
   bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutProfileInput = {
@@ -961,6 +1030,7 @@ export type UserUncheckedUpdateWithoutProfileInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -970,6 +1040,7 @@ export type UserUncheckedUpdateWithoutProfileInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutOrganizedHackathonsInput = {
@@ -983,6 +1054,7 @@ export type UserCreateWithoutOrganizedHackathonsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -992,6 +1064,7 @@ export type UserCreateWithoutOrganizedHackathonsInput = {
   bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutOrganizedHackathonsInput = {
@@ -1005,6 +1078,7 @@ export type UserUncheckedCreateWithoutOrganizedHackathonsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1014,6 +1088,7 @@ export type UserUncheckedCreateWithoutOrganizedHackathonsInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutOrganizedHackathonsInput = {
@@ -1043,6 +1118,7 @@ export type UserUpdateWithoutOrganizedHackathonsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1052,6 +1128,7 @@ export type UserUpdateWithoutOrganizedHackathonsInput = {
   bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutOrganizedHackathonsInput = {
@@ -1065,6 +1142,7 @@ export type UserUncheckedUpdateWithoutOrganizedHackathonsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1074,6 +1152,7 @@ export type UserUncheckedUpdateWithoutOrganizedHackathonsInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutBookmarksInput = {
@@ -1087,6 +1166,7 @@ export type UserCreateWithoutBookmarksInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -1096,6 +1176,7 @@ export type UserCreateWithoutBookmarksInput = {
   submissions?: Prisma.SubmissionCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutBookmarksInput = {
@@ -1109,6 +1190,7 @@ export type UserUncheckedCreateWithoutBookmarksInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1118,6 +1200,7 @@ export type UserUncheckedCreateWithoutBookmarksInput = {
   submissions?: Prisma.SubmissionUncheckedCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutBookmarksInput = {
@@ -1147,6 +1230,7 @@ export type UserUpdateWithoutBookmarksInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1156,6 +1240,7 @@ export type UserUpdateWithoutBookmarksInput = {
   submissions?: Prisma.SubmissionUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBookmarksInput = {
@@ -1169,6 +1254,7 @@ export type UserUncheckedUpdateWithoutBookmarksInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1178,6 +1264,7 @@ export type UserUncheckedUpdateWithoutBookmarksInput = {
   submissions?: Prisma.SubmissionUncheckedUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPaymentsInput = {
@@ -1191,6 +1278,7 @@ export type UserCreateWithoutPaymentsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -1200,6 +1288,7 @@ export type UserCreateWithoutPaymentsInput = {
   submissions?: Prisma.SubmissionCreateNestedManyWithoutUserInput
   bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPaymentsInput = {
@@ -1213,6 +1302,7 @@ export type UserUncheckedCreateWithoutPaymentsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1222,6 +1312,7 @@ export type UserUncheckedCreateWithoutPaymentsInput = {
   submissions?: Prisma.SubmissionUncheckedCreateNestedManyWithoutUserInput
   bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPaymentsInput = {
@@ -1251,6 +1342,7 @@ export type UserUpdateWithoutPaymentsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1260,6 +1352,7 @@ export type UserUpdateWithoutPaymentsInput = {
   submissions?: Prisma.SubmissionUpdateManyWithoutUserNestedInput
   bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentsInput = {
@@ -1273,6 +1366,7 @@ export type UserUncheckedUpdateWithoutPaymentsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1282,6 +1376,7 @@ export type UserUncheckedUpdateWithoutPaymentsInput = {
   submissions?: Prisma.SubmissionUncheckedUpdateManyWithoutUserNestedInput
   bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSubmissionsInput = {
@@ -1295,6 +1390,7 @@ export type UserCreateWithoutSubmissionsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -1304,6 +1400,7 @@ export type UserCreateWithoutSubmissionsInput = {
   bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSubmissionsInput = {
@@ -1317,6 +1414,7 @@ export type UserUncheckedCreateWithoutSubmissionsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1326,6 +1424,7 @@ export type UserUncheckedCreateWithoutSubmissionsInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSubmissionsInput = {
@@ -1355,6 +1454,7 @@ export type UserUpdateWithoutSubmissionsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1364,6 +1464,7 @@ export type UserUpdateWithoutSubmissionsInput = {
   bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSubmissionsInput = {
@@ -1377,6 +1478,7 @@ export type UserUncheckedUpdateWithoutSubmissionsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1386,6 +1488,7 @@ export type UserUncheckedUpdateWithoutSubmissionsInput = {
   bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSubscriptionsInput = {
@@ -1399,6 +1502,7 @@ export type UserCreateWithoutSubscriptionsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
@@ -1408,6 +1512,7 @@ export type UserCreateWithoutSubscriptionsInput = {
   submissions?: Prisma.SubmissionCreateNestedManyWithoutUserInput
   bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSubscriptionsInput = {
@@ -1421,6 +1526,7 @@ export type UserUncheckedCreateWithoutSubscriptionsInput = {
   isPremium?: boolean
   premiumPlan?: string | null
   premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
   createdAt?: Date | string
   updatedAt?: Date | string
   sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
@@ -1430,6 +1536,7 @@ export type UserUncheckedCreateWithoutSubscriptionsInput = {
   submissions?: Prisma.SubmissionUncheckedCreateNestedManyWithoutUserInput
   bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
   payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSubscriptionsInput = {
@@ -1459,6 +1566,7 @@ export type UserUpdateWithoutSubscriptionsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
@@ -1468,6 +1576,7 @@ export type UserUpdateWithoutSubscriptionsInput = {
   submissions?: Prisma.SubmissionUpdateManyWithoutUserNestedInput
   bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSubscriptionsInput = {
@@ -1481,6 +1590,7 @@ export type UserUncheckedUpdateWithoutSubscriptionsInput = {
   isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
   premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
@@ -1490,6 +1600,119 @@ export type UserUncheckedUpdateWithoutSubscriptionsInput = {
   submissions?: Prisma.SubmissionUncheckedUpdateManyWithoutUserNestedInput
   bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
   payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
+  organizerApplications?: Prisma.OrganizerApplicationUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutOrganizerApplicationsInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  role?: $Enums.UserRole
+  status?: $Enums.UserStatus
+  isPremium?: boolean
+  premiumPlan?: string | null
+  premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  sessions?: Prisma.SessionCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountCreateNestedManyWithoutUserInput
+  profile?: Prisma.UserProfileCreateNestedOneWithoutUserInput
+  organizedHackathons?: Prisma.HackathonCreateNestedManyWithoutOrganizerInput
+  submissions?: Prisma.SubmissionCreateNestedManyWithoutUserInput
+  bookmarks?: Prisma.HackathonBookmarkCreateNestedManyWithoutUserInput
+  payments?: Prisma.PaymentCreateNestedManyWithoutUserInput
+  subscriptions?: Prisma.SubscriptionCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutOrganizerApplicationsInput = {
+  id: string
+  name: string
+  email: string
+  emailVerified?: boolean
+  image?: string | null
+  role?: $Enums.UserRole
+  status?: $Enums.UserStatus
+  isPremium?: boolean
+  premiumPlan?: string | null
+  premiumExpiresAt?: Date | string | null
+  organizerApplicationStatus?: $Enums.OrganizerApplicationStatus
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  sessions?: Prisma.SessionUncheckedCreateNestedManyWithoutUserInput
+  accounts?: Prisma.AccountUncheckedCreateNestedManyWithoutUserInput
+  profile?: Prisma.UserProfileUncheckedCreateNestedOneWithoutUserInput
+  organizedHackathons?: Prisma.HackathonUncheckedCreateNestedManyWithoutOrganizerInput
+  submissions?: Prisma.SubmissionUncheckedCreateNestedManyWithoutUserInput
+  bookmarks?: Prisma.HackathonBookmarkUncheckedCreateNestedManyWithoutUserInput
+  payments?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
+  subscriptions?: Prisma.SubscriptionUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutOrganizerApplicationsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutOrganizerApplicationsInput, Prisma.UserUncheckedCreateWithoutOrganizerApplicationsInput>
+}
+
+export type UserUpsertWithoutOrganizerApplicationsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutOrganizerApplicationsInput, Prisma.UserUncheckedUpdateWithoutOrganizerApplicationsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutOrganizerApplicationsInput, Prisma.UserUncheckedCreateWithoutOrganizerApplicationsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutOrganizerApplicationsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutOrganizerApplicationsInput, Prisma.UserUncheckedUpdateWithoutOrganizerApplicationsInput>
+}
+
+export type UserUpdateWithoutOrganizerApplicationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUpdateManyWithoutUserNestedInput
+  profile?: Prisma.UserProfileUpdateOneWithoutUserNestedInput
+  organizedHackathons?: Prisma.HackathonUpdateManyWithoutOrganizerNestedInput
+  submissions?: Prisma.SubmissionUpdateManyWithoutUserNestedInput
+  bookmarks?: Prisma.HackathonBookmarkUpdateManyWithoutUserNestedInput
+  payments?: Prisma.PaymentUpdateManyWithoutUserNestedInput
+  subscriptions?: Prisma.SubscriptionUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutOrganizerApplicationsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  emailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  image?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  role?: Prisma.EnumUserRoleFieldUpdateOperationsInput | $Enums.UserRole
+  status?: Prisma.EnumUserStatusFieldUpdateOperationsInput | $Enums.UserStatus
+  isPremium?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  premiumPlan?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  premiumExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  organizerApplicationStatus?: Prisma.EnumOrganizerApplicationStatusFieldUpdateOperationsInput | $Enums.OrganizerApplicationStatus
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  sessions?: Prisma.SessionUncheckedUpdateManyWithoutUserNestedInput
+  accounts?: Prisma.AccountUncheckedUpdateManyWithoutUserNestedInput
+  profile?: Prisma.UserProfileUncheckedUpdateOneWithoutUserNestedInput
+  organizedHackathons?: Prisma.HackathonUncheckedUpdateManyWithoutOrganizerNestedInput
+  submissions?: Prisma.SubmissionUncheckedUpdateManyWithoutUserNestedInput
+  bookmarks?: Prisma.HackathonBookmarkUncheckedUpdateManyWithoutUserNestedInput
+  payments?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
+  subscriptions?: Prisma.SubscriptionUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -1505,6 +1728,7 @@ export type UserCountOutputType = {
   bookmarks: number
   payments: number
   subscriptions: number
+  organizerApplications: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1515,6 +1739,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   bookmarks?: boolean | UserCountOutputTypeCountBookmarksArgs
   payments?: boolean | UserCountOutputTypeCountPaymentsArgs
   subscriptions?: boolean | UserCountOutputTypeCountSubscriptionsArgs
+  organizerApplications?: boolean | UserCountOutputTypeCountOrganizerApplicationsArgs
 }
 
 /**
@@ -1576,6 +1801,13 @@ export type UserCountOutputTypeCountSubscriptionsArgs<ExtArgs extends runtime.Ty
   where?: Prisma.SubscriptionWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountOrganizerApplicationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.OrganizerApplicationWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1588,6 +1820,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   isPremium?: boolean
   premiumPlan?: boolean
   premiumExpiresAt?: boolean
+  organizerApplicationStatus?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
@@ -1598,6 +1831,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   bookmarks?: boolean | Prisma.User$bookmarksArgs<ExtArgs>
   payments?: boolean | Prisma.User$paymentsArgs<ExtArgs>
   subscriptions?: boolean | Prisma.User$subscriptionsArgs<ExtArgs>
+  organizerApplications?: boolean | Prisma.User$organizerApplicationsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1612,6 +1846,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   isPremium?: boolean
   premiumPlan?: boolean
   premiumExpiresAt?: boolean
+  organizerApplicationStatus?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -1627,6 +1862,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   isPremium?: boolean
   premiumPlan?: boolean
   premiumExpiresAt?: boolean
+  organizerApplicationStatus?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }, ExtArgs["result"]["user"]>
@@ -1642,11 +1878,12 @@ export type UserSelectScalar = {
   isPremium?: boolean
   premiumPlan?: boolean
   premiumExpiresAt?: boolean
+  organizerApplicationStatus?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "role" | "status" | "isPremium" | "premiumPlan" | "premiumExpiresAt" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "emailVerified" | "image" | "role" | "status" | "isPremium" | "premiumPlan" | "premiumExpiresAt" | "organizerApplicationStatus" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sessions?: boolean | Prisma.User$sessionsArgs<ExtArgs>
   accounts?: boolean | Prisma.User$accountsArgs<ExtArgs>
@@ -1656,6 +1893,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   bookmarks?: boolean | Prisma.User$bookmarksArgs<ExtArgs>
   payments?: boolean | Prisma.User$paymentsArgs<ExtArgs>
   subscriptions?: boolean | Prisma.User$subscriptionsArgs<ExtArgs>
+  organizerApplications?: boolean | Prisma.User$organizerApplicationsArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1672,6 +1910,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     bookmarks: Prisma.$HackathonBookmarkPayload<ExtArgs>[]
     payments: Prisma.$PaymentPayload<ExtArgs>[]
     subscriptions: Prisma.$SubscriptionPayload<ExtArgs>[]
+    organizerApplications: Prisma.$OrganizerApplicationPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1684,6 +1923,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     isPremium: boolean
     premiumPlan: string | null
     premiumExpiresAt: Date | null
+    organizerApplicationStatus: $Enums.OrganizerApplicationStatus
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["user"]>
@@ -2088,6 +2328,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   bookmarks<T extends Prisma.User$bookmarksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$bookmarksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$HackathonBookmarkPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   payments<T extends Prisma.User$paymentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   subscriptions<T extends Prisma.User$subscriptionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$subscriptionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubscriptionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  organizerApplications<T extends Prisma.User$organizerApplicationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$organizerApplicationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$OrganizerApplicationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2127,6 +2368,7 @@ export interface UserFieldRefs {
   readonly isPremium: Prisma.FieldRef<"User", 'Boolean'>
   readonly premiumPlan: Prisma.FieldRef<"User", 'String'>
   readonly premiumExpiresAt: Prisma.FieldRef<"User", 'DateTime'>
+  readonly organizerApplicationStatus: Prisma.FieldRef<"User", 'OrganizerApplicationStatus'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>
 }
@@ -2701,6 +2943,30 @@ export type User$subscriptionsArgs<ExtArgs extends runtime.Types.Extensions.Inte
   take?: number
   skip?: number
   distinct?: Prisma.SubscriptionScalarFieldEnum | Prisma.SubscriptionScalarFieldEnum[]
+}
+
+/**
+ * User.organizerApplications
+ */
+export type User$organizerApplicationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrganizerApplication
+   */
+  select?: Prisma.OrganizerApplicationSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the OrganizerApplication
+   */
+  omit?: Prisma.OrganizerApplicationOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrganizerApplicationInclude<ExtArgs> | null
+  where?: Prisma.OrganizerApplicationWhereInput
+  orderBy?: Prisma.OrganizerApplicationOrderByWithRelationInput | Prisma.OrganizerApplicationOrderByWithRelationInput[]
+  cursor?: Prisma.OrganizerApplicationWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.OrganizerApplicationScalarFieldEnum | Prisma.OrganizerApplicationScalarFieldEnum[]
 }
 
 /**

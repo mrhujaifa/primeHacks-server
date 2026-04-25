@@ -9,6 +9,28 @@
 * 🟢 You can import this file directly.
 */
 
+export const OrganizerApplicationStatus = {
+  NONE: 'NONE',
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+} as const
+
+export type OrganizerApplicationStatus = (typeof OrganizerApplicationStatus)[keyof typeof OrganizerApplicationStatus]
+
+
+export const ExpectedHackathonType = {
+  ONLINE: 'ONLINE',
+  OFFLINE: 'OFFLINE',
+  HYBRID: 'HYBRID',
+  COLLEGE_COMMUNITY: 'COLLEGE_COMMUNITY',
+  STARTUP_INDUSTRY: 'STARTUP_INDUSTRY',
+  OTHER: 'OTHER'
+} as const
+
+export type ExpectedHackathonType = (typeof ExpectedHackathonType)[keyof typeof ExpectedHackathonType]
+
+
 export const UserRole = {
   ADMIN: 'ADMIN',
   ORGANIZER: 'ORGANIZER',

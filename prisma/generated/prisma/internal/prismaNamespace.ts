@@ -396,7 +396,8 @@ export const ModelName = {
   HackathonBookmark: 'HackathonBookmark',
   Payment: 'Payment',
   Submission: 'Submission',
-  Subscription: 'Subscription'
+  Subscription: 'Subscription',
+  OrganizerApplication: 'OrganizerApplication'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -412,7 +413,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "session" | "account" | "verification" | "userProfile" | "category" | "hackathon" | "hackathonReward" | "hackathonWinner" | "hackathonBookmark" | "payment" | "submission" | "subscription"
+    modelProps: "user" | "session" | "account" | "verification" | "userProfile" | "category" | "hackathon" | "hackathonReward" | "hackathonWinner" | "hackathonBookmark" | "payment" | "submission" | "subscription" | "organizerApplication"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1378,6 +1379,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    OrganizerApplication: {
+      payload: Prisma.$OrganizerApplicationPayload<ExtArgs>
+      fields: Prisma.OrganizerApplicationFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.OrganizerApplicationFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.OrganizerApplicationFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>
+        }
+        findFirst: {
+          args: Prisma.OrganizerApplicationFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.OrganizerApplicationFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>
+        }
+        findMany: {
+          args: Prisma.OrganizerApplicationFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>[]
+        }
+        create: {
+          args: Prisma.OrganizerApplicationCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>
+        }
+        createMany: {
+          args: Prisma.OrganizerApplicationCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.OrganizerApplicationCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>[]
+        }
+        delete: {
+          args: Prisma.OrganizerApplicationDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>
+        }
+        update: {
+          args: Prisma.OrganizerApplicationUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>
+        }
+        deleteMany: {
+          args: Prisma.OrganizerApplicationDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.OrganizerApplicationUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.OrganizerApplicationUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>[]
+        }
+        upsert: {
+          args: Prisma.OrganizerApplicationUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$OrganizerApplicationPayload>
+        }
+        aggregate: {
+          args: Prisma.OrganizerApplicationAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateOrganizerApplication>
+        }
+        groupBy: {
+          args: Prisma.OrganizerApplicationGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrganizerApplicationGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.OrganizerApplicationCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.OrganizerApplicationCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1428,6 +1503,7 @@ export const UserScalarFieldEnum = {
   isPremium: 'isPremium',
   premiumPlan: 'premiumPlan',
   premiumExpiresAt: 'premiumExpiresAt',
+  organizerApplicationStatus: 'organizerApplicationStatus',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -1633,6 +1709,25 @@ export const SubscriptionScalarFieldEnum = {
 export type SubscriptionScalarFieldEnum = (typeof SubscriptionScalarFieldEnum)[keyof typeof SubscriptionScalarFieldEnum]
 
 
+export const OrganizerApplicationScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  organizationName: 'organizationName',
+  websiteUrl: 'websiteUrl',
+  contactEmail: 'contactEmail',
+  previousExperience: 'previousExperience',
+  reason: 'reason',
+  expectedHackathonType: 'expectedHackathonType',
+  agreeToGuidelines: 'agreeToGuidelines',
+  rejectionReason: 'rejectionReason',
+  reviewedAt: 'reviewedAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type OrganizerApplicationScalarFieldEnum = (typeof OrganizerApplicationScalarFieldEnum)[keyof typeof OrganizerApplicationScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -1740,6 +1835,20 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'OrganizerApplicationStatus'
+ */
+export type EnumOrganizerApplicationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrganizerApplicationStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'OrganizerApplicationStatus[]'
+ */
+export type ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrganizerApplicationStatus[]'>
     
 
 
@@ -1990,6 +2099,7 @@ export type GlobalOmitConfig = {
   payment?: Prisma.PaymentOmit
   submission?: Prisma.SubmissionOmit
   subscription?: Prisma.SubscriptionOmit
+  organizerApplication?: Prisma.OrganizerApplicationOmit
 }
 
 /* Types for Logging */

@@ -74,6 +74,13 @@ export type DateTimeNullableFilter<$PrismaModel = never> = {
   not?: Prisma.NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
 }
 
+export type EnumOrganizerApplicationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.OrganizerApplicationStatus | Prisma.EnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OrganizerApplicationStatus[] | Prisma.ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OrganizerApplicationStatus[] | Prisma.ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOrganizerApplicationStatusFilter<$PrismaModel> | $Enums.OrganizerApplicationStatus
+}
+
 export type DateTimeFilter<$PrismaModel = never> = {
   equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
   in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
@@ -166,6 +173,16 @@ export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+}
+
+export type EnumOrganizerApplicationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OrganizerApplicationStatus | Prisma.EnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OrganizerApplicationStatus[] | Prisma.ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OrganizerApplicationStatus[] | Prisma.ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOrganizerApplicationStatusWithAggregatesFilter<$PrismaModel> | $Enums.OrganizerApplicationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOrganizerApplicationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOrganizerApplicationStatusFilter<$PrismaModel>
 }
 
 export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -528,6 +545,13 @@ export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
   not?: Prisma.NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
 }
 
+export type NestedEnumOrganizerApplicationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.OrganizerApplicationStatus | Prisma.EnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OrganizerApplicationStatus[] | Prisma.ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OrganizerApplicationStatus[] | Prisma.ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOrganizerApplicationStatusFilter<$PrismaModel> | $Enums.OrganizerApplicationStatus
+}
+
 export type NestedDateTimeFilter<$PrismaModel = never> = {
   equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
   in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel>
@@ -635,6 +659,16 @@ export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumOrganizerApplicationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.OrganizerApplicationStatus | Prisma.EnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.OrganizerApplicationStatus[] | Prisma.ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.OrganizerApplicationStatus[] | Prisma.ListEnumOrganizerApplicationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumOrganizerApplicationStatusWithAggregatesFilter<$PrismaModel> | $Enums.OrganizerApplicationStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumOrganizerApplicationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumOrganizerApplicationStatusFilter<$PrismaModel>
 }
 
 export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
