@@ -9,9 +9,17 @@ import { prisma } from "../../../lib/prisma";
 
 //* Register User
 const registerUser = async (payload: IRegisterUser) => {
-  try {
-    const { name, email, password } = payload;
+  const { name, email, password } = payload;
+  const existingUser = await prisma.user.findUnique({
+    where: { email },
+    select: { id: true },
+  });
 
+  if (existingUser) {
+    throw new AppError(status.CONFLICT, "User with this email already exists");
+  }
+
+  try {
     const data = await auth.api.signUpEmail({
       body: { name, email, password },
     });

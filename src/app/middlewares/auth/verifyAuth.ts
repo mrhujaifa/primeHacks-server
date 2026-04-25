@@ -14,15 +14,18 @@ export const verifyAuth =
   (...authRoles: UserRole[]) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
-      //Session Token Verification
-      const sessionToken = CookieUtils.getCookie(
+      /**
+       * 1. Better Auth session verification
+       * Social login হলে better-auth.session_token থাকবে
+       */
+      const rawSessionToken = CookieUtils.getCookie(
         req,
         "better-auth.session_token",
       );
 
-      if (!sessionToken) {
-        throw new Error("Unauthorized access! No session token provided.");
-      }
+      const sessionToken = rawSessionToken
+        ? decodeURIComponent(rawSessionToken).split(".")[0]
+        : null;
 
       if (sessionToken) {
         const sessionExists = await prisma.session.findFirst({
@@ -75,29 +78,24 @@ export const verifyAuth =
             role: user.role,
             email: user.email,
           };
-        }
 
-        const accessToken = CookieUtils.getCookie(req, "accessToken");
-
-        if (!accessToken) {
-          throw new AppError(
-            status.UNAUTHORIZED,
-            "Unauthorized access! No access token provided.",
-          );
+          return next();
         }
       }
 
-      //Access Token Verification
+      /**
+       * 2. Custom access token verification
+       * Email/password login হলে accessToken থাকবে
+       */
       const accessToken = CookieUtils.getCookie(req, "accessToken");
 
       if (!accessToken) {
         throw new AppError(
           status.UNAUTHORIZED,
-          "Unauthorized access! No access token provided.",
+          "Unauthorized access! No valid session or access token provided.",
         );
       }
 
-      //verifyToken handle
       const verifiedToken = jwtUtils.verifyToken(
         accessToken,
         process.env.ACCESS_TOKEN_SECRET as string,
@@ -120,7 +118,13 @@ export const verifyAuth =
         );
       }
 
-      next();
+      req.user = {
+        userId: verifiedToken.data!.userId,
+        role: verifiedToken.data!.role as UserRole,
+        email: verifiedToken.data!.email,
+      };
+
+      return next();
     } catch (error: any) {
       next(error);
     }
