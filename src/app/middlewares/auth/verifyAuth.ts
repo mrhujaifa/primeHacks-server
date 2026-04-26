@@ -4,11 +4,11 @@ import status from "http-status";
 import {
   UserRole,
   UserStatus,
-} from "../../../../prisma/generated/prisma/enums";
-import { CookieUtils } from "../../utils/cookie";
-import { prisma } from "../../../lib/prisma";
-import AppError from "../../errors/AppError";
-import { jwtUtils } from "../../utils/jwt";
+} from "../../../../prisma/generated/prisma/enums.js";
+import { CookieUtils } from "../../utils/cookie.js";
+import { prisma } from "../../../lib/prisma.js";
+import AppError from "../../errors/AppError.js";
+import { jwtUtils } from "../../utils/jwt.js";
 
 export const verifyAuth =
   (...authRoles: UserRole[]) =>

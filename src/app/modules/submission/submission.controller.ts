@@ -1,7 +1,7 @@
 import status from "http-status";
-import { catchAsync } from "../../shared/catchAsync";
-import { sendResponse } from "../../shared/sendResponse";
-import { SubmissionServices } from "./submission.service";
+import { catchAsync } from "../../shared/catchAsync.js";
+import { sendResponse } from "../../shared/sendResponse.js";
+import { SubmissionServices } from "./submission.service.js";
 
 const createSubmission = catchAsync(async (req, res) => {
   const payload = req.body;

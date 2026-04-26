@@ -1,13 +1,13 @@
 import express, { Application, Request, Response } from "express";
-import { IndexRoutes } from "./app/routes";
-import { globalErrorHandler } from "./app/middlewares/errors/globalErrorHandler";
-import { notFound } from "./app/middlewares/errors/notFound";
+import { IndexRoutes } from "./app/routes/index.js";
+import { globalErrorHandler } from "./app/middlewares/errors/globalErrorHandler.js";
+import { notFound } from "./app/middlewares/errors/notFound.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
 import { toNodeHandler } from "better-auth/node";
-import { auth } from "./lib/auth";
-import { PaymentController } from "./app/modules/payment/payment.controller";
+import { auth } from "./lib/auth.js";
+import { PaymentController } from "./app/modules/payment/payment.controller.js";
 
 // Validate required environment variables
 const requiredEnvVars = [

@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { HackathonControllers } from "./hackathon.controller";
-import validateRequest from "../../middlewares/validation/validateRequest";
-import { verifyAuth } from "../../middlewares/auth/verifyAuth";
-import { UserRole } from "../../../../prisma/generated/prisma/enums";
-import { createHackathonSchema } from "./hackathon.validation";
+import { HackathonControllers } from "./hackathon.controller.js";
+import validateRequest from "../../middlewares/validation/validateRequest.js";
+import { verifyAuth } from "../../middlewares/auth/verifyAuth.js";
+import { UserRole } from "../../../../prisma/generated/prisma/enums.js";
+import { createHackathonSchema } from "./hackathon.validation.js";
 
 const router = Router();
 

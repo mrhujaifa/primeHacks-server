@@ -1,4 +1,4 @@
-import { prisma } from "../lib/prisma";
+import { prisma } from "../lib/prisma.js";
 
 const hackathonCategories = [
   { name: "AI / Machine Learning", slug: "ai-machine-learning" },

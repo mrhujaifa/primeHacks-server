@@ -1,7 +1,7 @@
 import status from "http-status";
-import { catchAsync } from "../../shared/catchAsync";
-import { sendResponse } from "../../shared/sendResponse";
-import { OrganizerApplicationServices } from "./organizerApplication.service";
+import { catchAsync } from "../../shared/catchAsync.js";
+import { sendResponse } from "../../shared/sendResponse.js";
+import { OrganizerApplicationServices } from "./organizerApplication.service.js";
 
 const createOrganizerApplication = catchAsync(async (req, res) => {
   const user = (req as any).user;

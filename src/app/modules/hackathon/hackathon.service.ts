@@ -1,18 +1,18 @@
 import status from "http-status";
-import { prisma } from "../../../lib/prisma";
-import AppError from "../../errors/AppError";
-import { IRequestUser } from "../../types/user";
+import { prisma } from "../../../lib/prisma.js";
+import AppError from "../../errors/AppError.js";
+import { IRequestUser } from "../../types/user.js";
 import {
   ICreateHackathonPayload,
   IUpdateHackathonPayload,
-} from "./hackathon.interface";
+} from "./hackathon.interface.js";
 import {
   HackathonStatus,
   UserRole,
   UserStatus,
-} from "../../../../prisma/generated/prisma/enums";
-import { SlugUtils } from "../../utils/slugUtils";
-import { getUserOrThrow } from "../user/user.utils";
+} from "../../../../prisma/generated/prisma/enums.js";
+import { SlugUtils } from "../../utils/slugUtils.js";
+import { getUserOrThrow } from "../user/user.utils.js";
 
 //* create Hackathon
 

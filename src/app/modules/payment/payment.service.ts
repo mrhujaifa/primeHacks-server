@@ -1,11 +1,11 @@
 import Stripe from "stripe";
-import { PaymentStatus } from "../../../../prisma/generated/prisma/enums";
-import { stripe } from "../../../config/stripe.config";
-import { prisma } from "../../../lib/prisma";
-import { getPlanDetails } from "../../utils/payment.utils";
-import { IRequestUser } from "../../types/user";
+import { PaymentStatus } from "../../../../prisma/generated/prisma/enums.js";
+import { stripe } from "../../../config/stripe.config.js";
+import { prisma } from "../../../lib/prisma.js";
+import { getPlanDetails } from "../../utils/payment.utils.js";
+import { IRequestUser } from "../../types/user.js";
 import crypto from "node:crypto";
-import AppError from "../../errors/AppError";
+import AppError from "../../errors/AppError.js";
 import status from "http-status";
 
 const createCheckoutSession = async (
@@ -227,8 +227,8 @@ export const PaymentService = {
 //   PaymentStatus,
 //   SubscriptionPlan,
 //   SubscriptionStatus,
-// } from "../../../../prisma/generated/prisma/enums";
-// import { prisma } from "../../../lib/prisma";
+// } from "../../../../prisma/generated/prisma/enums.js";
+// import { prisma } from "../../../lib/prisma.js";
 
 // const getSubscriptionExpiryDate = (plan: SubscriptionPlan): Date | null => {
 //   const now = new Date();

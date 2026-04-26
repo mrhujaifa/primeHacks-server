@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { AuthRoutes } from "../modules/auth/auth.route";
-import { HackathonRoutes } from "../modules/hackathon/hackathon.route";
-import { SubmissionRoutes } from "../modules/submission/submission.route";
-import { PaymentRoutes } from "../modules/payment/payment.route";
-import { AdminRoutes } from "../modules/admin/admin.route";
-import { organizerApplicationRoutes } from "../modules/organizerApplication/organizerApplication.route";
+import { AuthRoutes } from "../modules/auth/auth.route.js";
+import { HackathonRoutes } from "../modules/hackathon/hackathon.route.js";
+import { SubmissionRoutes } from "../modules/submission/submission.route.js";
+import { PaymentRoutes } from "../modules/payment/payment.route.js";
+import { AdminRoutes } from "../modules/admin/admin.route.js";
+import { organizerApplicationRoutes } from "../modules/organizerApplication/organizerApplication.route.js";
 
 const router = Router();
 // root routes

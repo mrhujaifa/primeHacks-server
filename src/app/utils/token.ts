@@ -1,7 +1,7 @@
 import { JwtPayload, SignOptions } from "jsonwebtoken";
-import { jwtUtils } from "./jwt";
+import { jwtUtils } from "./jwt.js";
 
-import { CookieUtils } from "./cookie";
+import { CookieUtils } from "./cookie.js";
 import { Response } from "express";
 
 //* Get access token

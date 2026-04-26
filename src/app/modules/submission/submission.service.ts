@@ -1,15 +1,15 @@
 import status from "http-status";
-import { prisma } from "../../../lib/prisma";
-import { IRequestUser } from "../../types/user";
-import AppError from "../../errors/AppError";
+import { prisma } from "../../../lib/prisma.js";
+import { IRequestUser } from "../../types/user.js";
+import AppError from "../../errors/AppError.js";
 
-import { ICreateSubmissionPayload } from "./submission.interface";
+import { ICreateSubmissionPayload } from "./submission.interface.js";
 import {
   HackathonStatus,
   SubmissionStatus,
   UserStatus,
-} from "../../../../prisma/generated/prisma/enums";
-import { getUserOrThrow } from "../user/user.utils";
+} from "../../../../prisma/generated/prisma/enums.js";
+import { getUserOrThrow } from "../user/user.utils.js";
 
 const createSubmission = async (
   user: IRequestUser,

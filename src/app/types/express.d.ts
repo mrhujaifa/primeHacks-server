@@ -1,5 +1,5 @@
-import { auth } from "../../lib/auth";
-import { IRequestUser } from "./user";
+import { auth } from "../../lib/auth.js";
+import { IRequestUser } from "./user.js";
 
 declare global {
   namespace Express {

@@ -1,7 +1,7 @@
 import {
   HackathonStatus,
   RewardType,
-} from "../../../../prisma/generated/prisma/enums";
+} from "../../../../prisma/generated/prisma/enums.js";
 
 export interface IHackathonRewardPayload {
   title: string;

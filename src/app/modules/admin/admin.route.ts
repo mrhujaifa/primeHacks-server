@@ -1,7 +1,7 @@
 import express from "express";
-import { verifyAuth } from "../../middlewares/auth/verifyAuth";
-import { UserRole } from "../../../../prisma/generated/prisma/enums";
-import { AdminControllers } from "./admin.controller";
+import { verifyAuth } from "../../middlewares/auth/verifyAuth.js";
+import { UserRole } from "../../../../prisma/generated/prisma/enums.js";
+import { AdminControllers } from "./admin.controller.js";
 
 const router = express.Router();
 

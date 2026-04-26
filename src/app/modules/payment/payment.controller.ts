@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { PaymentService } from "./payment.service";
-import { stripe } from "../../../config/stripe.config";
-import { IRequestUser } from "../../types/user";
+import { PaymentService } from "./payment.service.js";
+import { stripe } from "../../../config/stripe.config.js";
+import { IRequestUser } from "../../types/user.js";
 
-import AppError from "../../errors/AppError";
+import AppError from "../../errors/AppError.js";
 import status from "http-status";
-import { catchAsync } from "../../shared/catchAsync";
-import { sendResponse } from "../../shared/sendResponse";
+import { catchAsync } from "../../shared/catchAsync.js";
+import { sendResponse } from "../../shared/sendResponse.js";
 
 const createCheckoutSession = catchAsync(
   async (req: Request, res: Response) => {

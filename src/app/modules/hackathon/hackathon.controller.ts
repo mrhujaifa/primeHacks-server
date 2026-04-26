@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { catchAsync } from "../../shared/catchAsync";
-import { sendResponse } from "../../shared/sendResponse";
+import { catchAsync } from "../../shared/catchAsync.js";
+import { sendResponse } from "../../shared/sendResponse.js";
 import status from "http-status";
-import { HackathonServices } from "./hackathon.service";
+import { HackathonServices } from "./hackathon.service.js";
 
 //* Create Hackathon
 const createHackathon = catchAsync(async (req: Request, res: Response) => {

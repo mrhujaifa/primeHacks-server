@@ -1,7 +1,7 @@
 import status from "http-status";
-import { catchAsync } from "../../shared/catchAsync";
-import { sendResponse } from "../../shared/sendResponse";
-import { AdminServices } from "./admin.service";
+import { catchAsync } from "../../shared/catchAsync.js";
+import { sendResponse } from "../../shared/sendResponse.js";
+import { AdminServices } from "./admin.service.js";
 
 //* Get all user controller
 const getAllUsers = catchAsync(async (req, res) => {

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { OrganizerApplicationStatus } from "../../../../prisma/generated/prisma/enums";
+import { OrganizerApplicationStatus } from "../../../../prisma/generated/prisma/enums.js";
 
 export const createOrganizerApplicationValidationSchema = z.object({
   organizationName: z

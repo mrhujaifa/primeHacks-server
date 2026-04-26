@@ -1,12 +1,12 @@
 import { Request, RequestHandler, Response } from "express";
-import { catchAsync } from "../../shared/catchAsync";
-import { sendResponse } from "../../shared/sendResponse";
+import { catchAsync } from "../../shared/catchAsync.js";
+import { sendResponse } from "../../shared/sendResponse.js";
 import status from "http-status";
-import { AuthServices } from "./auth.service";
-import { IRegisterUser } from "./auth.interface";
-import { tokenUtils } from "../../utils/token";
-import { auth } from "../../../lib/auth";
-import AppError from "../../errors/AppError";
+import { AuthServices } from "./auth.service.js";
+import { IRegisterUser } from "./auth.interface.js";
+import { tokenUtils } from "../../utils/token.js";
+import { auth } from "../../../lib/auth.js";
+import AppError from "../../errors/AppError.js";
 import { fromNodeHeaders } from "better-auth/node";
 
 //* Register user controller

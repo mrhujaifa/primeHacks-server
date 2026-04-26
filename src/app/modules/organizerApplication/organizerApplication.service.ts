@@ -1,13 +1,13 @@
 import status from "http-status";
-import { prisma } from "../../../lib/prisma";
-import AppError from "../../errors/AppError";
-import { IRequestUser } from "../../types/user";
-import { TCreateOrganizerApplicationPayload } from "./organizerApplication.interface";
+import { prisma } from "../../../lib/prisma.js";
+import AppError from "../../errors/AppError.js";
+import { IRequestUser } from "../../types/user.js";
+import { TCreateOrganizerApplicationPayload } from "./organizerApplication.interface.js";
 import {
   OrganizerApplicationStatus,
   UserRole,
   UserStatus,
-} from "../../../../prisma/generated/prisma/enums";
+} from "../../../../prisma/generated/prisma/enums.js";
 
 const createOrganizerApplication = async (
   user: IRequestUser,

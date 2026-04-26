@@ -2,9 +2,9 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { waitUntil } from "@vercel/functions";
 
-import { prisma } from "./prisma";
+import { prisma } from "./prisma.js";
 import { emailOTP } from "better-auth/plugins";
-import { sendOtpEmail } from "../app/utils/sendEmail";
+import { sendOtpEmail } from "../app/utils/sendEmail.js";
 
 const trustedOrigins = process.env.FRONTEND_URL as string;
 const baseUrl = process.env.BETTER_AUTH_URL as string;

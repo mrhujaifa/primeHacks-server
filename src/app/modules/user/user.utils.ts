@@ -1,6 +1,6 @@
 import status from "http-status";
-import AppError from "../../errors/AppError";
-import { prisma } from "../../../lib/prisma";
+import AppError from "../../errors/AppError.js";
+import { prisma } from "../../../lib/prisma.js";
 
 export const getUserOrThrow = async (userId: string) => {
   const user = await prisma.user.findUnique({

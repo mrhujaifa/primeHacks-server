@@ -4,9 +4,9 @@ import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
 import { ZodError } from "zod";
 
-import AppError from "../../errors/AppError";
-import { handleZodError } from "../../errors/handleZodError";
-import { TErrorResponse, TErrorSources } from "../../types/error.type";
+import AppError from "../../errors/AppError.js";
+import { handleZodError } from "../../errors/handleZodError.js";
+import { TErrorResponse, TErrorSources } from "../../types/error.type.js";
 
 export const globalErrorHandler = (
   err: any,

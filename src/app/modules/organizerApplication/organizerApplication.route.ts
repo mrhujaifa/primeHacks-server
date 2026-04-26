@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { verifyAuth } from "../../middlewares/auth/verifyAuth";
-import { UserRole } from "../../../../prisma/generated/prisma/enums";
-import validateRequest from "../../middlewares/validation/validateRequest";
-import { createOrganizerApplicationValidationSchema } from "./organizerApplication.validation";
-import { OrganizerApplicationControllers } from "./organizerApplication.controller";
+import { verifyAuth } from "../../middlewares/auth/verifyAuth.js";
+import { UserRole } from "../../../../prisma/generated/prisma/enums.js";
+import validateRequest from "../../middlewares/validation/validateRequest.js";
+import { createOrganizerApplicationValidationSchema } from "./organizerApplication.validation.js";
+import { OrganizerApplicationControllers } from "./organizerApplication.controller.js";
 
 const router = Router();
 

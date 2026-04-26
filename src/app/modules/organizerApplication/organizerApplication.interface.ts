@@ -1,4 +1,4 @@
-import { ExpectedHackathonType } from "../../../../prisma/generated/prisma/enums";
+import { ExpectedHackathonType } from "../../../../prisma/generated/prisma/enums.js";
 
 export type TCreateOrganizerApplicationPayload = {
   organizationName: string;

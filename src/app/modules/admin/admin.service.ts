@@ -1,8 +1,8 @@
 import status from "http-status";
-import { UserRole } from "../../../../prisma/generated/prisma/enums";
-import { prisma } from "../../../lib/prisma";
-import AppError from "../../errors/AppError";
-import { IRequestUser } from "../../types/user";
+import { UserRole } from "../../../../prisma/generated/prisma/enums.js";
+import { prisma } from "../../../lib/prisma.js";
+import AppError from "../../errors/AppError.js";
+import { IRequestUser } from "../../types/user.js";
 
 const getAllUsers = async () => {
   const alluser = await prisma.user.findMany();
